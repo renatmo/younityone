@@ -1,0 +1,3006 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="YOUNITY_ONEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TB_ACAO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID_TIPO_ACAO" Type="int" Nullable="false" />
+          <Property Name="ID_TAREFA" Type="int" Nullable="false" />
+          <Property Name="NOM_CAMINHO_APP" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="DES_ARGUMENTO" Type="varchar" MaxLength="4000" />
+          <Property Name="NUM_ORDEM_EXECUCAO" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_ACTION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_CONTROLLER" Type="int" Nullable="false" />
+          <Property Name="NOM_ACTION" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_AGENDA_EXECUCAO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_DISPARADOR" Type="int" Nullable="false" />
+          <Property Name="DTH_EXECUCAO" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_CIDADE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOM_CIDADE" Type="varchar" MaxLength="2000" />
+          <Property Name="SIG_UF" Type="varchar" MaxLength="2" />
+        </EntityType>
+        <EntityType Name="TB_CLIENTE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_TIPO_PESSOA" Type="int" Nullable="false" />
+          <Property Name="NOM_FANTASIA" Type="varchar" MaxLength="400" Nullable="false" />
+          <Property Name="NOM_RAZAO" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="NUM_DOCUMENTO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FLG_ATIVO" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_CONTATO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TB_TIPO_CONTATO_ID" Type="int" Nullable="false" />
+          <Property Name="ID_UNIDADE" Type="int" Nullable="false" />
+          <Property Name="DES_CONTATO" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="NOM_CONTATO" Type="varchar" MaxLength="300" />
+          <Property Name="FLG_ATIVO" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_CONTROLER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOM_CONTROLLER" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_DEPARTAMENTO_CLIENTE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_CLIENTE" Type="int" Nullable="false" />
+          <Property Name="NOM_DEPARTAMENTO" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="FLG_ATIVO" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_DISPARADOR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID_TIPO_DISPARADOR" Type="int" Nullable="false" />
+          <Property Name="ID_TAREFA" Type="int" Nullable="false" />
+          <Property Name="DTH_INICIO" Type="datetime" Nullable="false" />
+          <Property Name="DTH_FIM" Type="datetime" />
+          <Property Name="FLG_DOMINGO" Type="bit" />
+          <Property Name="FLG_SEGUNDA" Type="bit" />
+          <Property Name="FLG_TERCA" Type="bit" />
+          <Property Name="FLG_QUARTA" Type="bit" />
+          <Property Name="FLG_QUINTA" Type="bit" />
+          <Property Name="FLG_SEXTA" Type="bit" />
+          <Property Name="FLG_SABADO" Type="bit" />
+          <Property Name="NUM_REPETICAO" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_ENDERECO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TB_CIDADE_ID" Type="int" Nullable="false" />
+          <Property Name="ID_TIPO_LOGRADOURO" Type="int" Nullable="false" />
+          <Property Name="ID_UNIDADE" Type="int" Nullable="false" />
+          <Property Name="DES_ENDERECO" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="DES_NUMERO_ALTURA" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="DES_COMPLEMENTO" Type="varchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="TB_FONTE_DEPARTAMENTO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_FONTE" Type="int" Nullable="false" />
+          <Property Name="ID_DEPARTAMENTO" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_FONTE_PAGADORA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOM_FONTE" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="END_SITE" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="FLG_ATIVO" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_FONTE_PAGADORA_PARAMETRO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOM_PARAMETRO" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_FONTE_PAGADORA_PARAMETRO" Type="int" Nullable="false" />
+          <Property Name="ID_FONTE_PAGADORA" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_GRUPO_NOTIFICACAO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_TIPO_NOTIFICACAO" Type="int" Nullable="false" />
+          <Property Name="DES_GRUPO" Type="varchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="TB_GRUPO_NOTIFICACAO_ACAO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_GRUPO_NOTIFICACAO" Type="int" Nullable="false" />
+          <Property Name="ID_ACAO" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_GRUPO_NOTIFICACAO_REMETENTE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_GRUPO_NOTIFICACAO" Type="int" Nullable="false" />
+          <Property Name="NOM_REMETENTE" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="NUM_TELEFONE" Type="varchar" MaxLength="100" />
+          <Property Name="END_MAIL" Type="varchar" MaxLength="4000" />
+          <Property Name="FLG_ATIVO" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_HISTORICO_EXECUCAO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_TAREFA" Type="int" Nullable="false" />
+          <Property Name="FLG_SUCESSO" Type="bit" Nullable="false" />
+          <Property Name="DES_DETALHE" Type="varchar" MaxLength="4000" Nullable="false" />
+          <Property Name="DTH_EXECUCAO" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_LOG_ACESSO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_ACTION" Type="int" Nullable="false" />
+          <Property Name="ID_USUARIO" Type="int" Nullable="false" />
+          <Property Name="DTH_ACAO" Type="datetime" />
+          <Property Name="NUM_IP" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TB_LOG_SISTEMA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_ACTION" Type="int" Nullable="false" />
+          <Property Name="ID_MODULO" Type="int" Nullable="false" />
+          <Property Name="ID_USUARIO" Type="int" Nullable="false" />
+          <Property Name="DTH_ACAO" Type="datetime" Nullable="false" />
+          <Property Name="FLG_ERRO" Type="bit" Nullable="false" />
+          <Property Name="DES_ACAO" Type="varchar" MaxLength="8000" Nullable="false" />
+          <Property Name="NUM_IP" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TB_MENU">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOM_MENU" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="NUM_ORDEM" Type="int" Nullable="false" />
+          <Property Name="FLG_ATIVO" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_MODULO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOM_MODULO" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="DES_MODULO" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="FLG_ATIVO" Type="bit" />
+        </EntityType>
+        <EntityType Name="TB_MODULO_DEPARTAMENTO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_DEPARTAMENTO" Type="int" Nullable="false" />
+          <Property Name="ID_MODULO" Type="int" Nullable="false" />
+          <Property Name="FLG_ATIVO" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_PERMISSOES_GRUPO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_ACTION" Type="int" Nullable="false" />
+          <Property Name="ID_GRUPO" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_SUBMENU">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_ACTION" Type="int" Nullable="false" />
+          <Property Name="ID_MENU" Type="int" Nullable="false" />
+          <Property Name="NOM_SUBMENU" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="NUM_ORDEM" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_TAREFA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_USUARIO" Type="int" Nullable="false" />
+          <Property Name="ID_MODULO" Type="int" Nullable="false" />
+          <Property Name="NOM_TAREFA" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="DES_TAREFA" Type="varchar" MaxLength="3000" />
+          <Property Name="FLG_ATIVO" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_TAREFA_FONTE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID_FONTE_DEPARTAMENTO" Type="int" Nullable="false" />
+          <Property Name="ID_TAREFA" Type="int" Nullable="false" />
+          <Property Name="FLG_ATIVO" Type="bit" />
+        </EntityType>
+        <EntityType Name="TB_TAREFA_FONTE_ACESSO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_UNIDADE" Type="int" Nullable="false" />
+          <Property Name="ID_FONTE_PARAMETRO_DEFINICAO" Type="int" Nullable="false" />
+          <Property Name="ID_TAREFA_FONTE" Type="int" Nullable="false" />
+          <Property Name="VAL_ACESSO" Type="varchar" MaxLength="2000" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_TAREFA_PROXIMA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_TAREFA_PROXIMA" Type="int" Nullable="false" />
+          <Property Name="ID_TAREFA_ATUAL" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_TAREFA_TIPO_ENTREGA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TB_TIPO_ENTREGA_ID" Type="int" Nullable="false" />
+          <Property Name="TB_TAREFA_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_TIPO_ACAO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DES_TIPO" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_TIPO_CONTATO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DES_CONTATO" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="DES_MASCARA" Type="varchar" MaxLength="600" />
+        </EntityType>
+        <EntityType Name="TB_TIPO_DISPARADOR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DES_TIPO" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_TIPO_ENTREGA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DES_TIPO_ENTREGA" Type="varchar" MaxLength="300" />
+          <Property Name="FLG_ATIVO" Type="bit" />
+        </EntityType>
+        <EntityType Name="TB_TIPO_LOGRADOURO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DES_LOGRADOURO" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="TB_TIPO_NOTIFICACAO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DES_NOTIFICACAO" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="FLG_ATIVO" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_TIPO_PESSOA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DES_PESSOA" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_UNIDADE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_CLIENTE" Type="int" Nullable="false" />
+          <Property Name="NUM_CNPJ" Type="varchar" MaxLength="20" />
+          <Property Name="NOM_UNIDADE" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="FLG_ATIVO" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_USUARIO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_DEPARTAMENTO" Type="int" Nullable="false" />
+          <Property Name="ID_GRUPO" Type="int" Nullable="false" />
+          <Property Name="COD_USUARIO" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="DES_SENHA" Type="varchar" MaxLength="4000" />
+          <Property Name="NOM_USUARIO" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="NUM_CPF" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="END_MAIL" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="FLG_ATIVO" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_USUARIO_ACTION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_USUARIO" Type="int" Nullable="false" />
+          <Property Name="ID_ACTION" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_USUARIO_GRUPO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DES_GRUPO" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="FLG_ATIVO" Type="bit" />
+        </EntityType>
+        <Association Name="FK__TB_ACAO__ID_TARE__2BFE89A6">
+          <End Role="TB_TAREFA" Type="Self.TB_TAREFA" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TB_ACAO" Type="Self.TB_ACAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_TAREFA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_ACAO">
+              <PropertyRef Name="ID_TAREFA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_ACAO__ID_TIPO__2CF2ADDF">
+          <End Role="TB_TIPO_ACAO" Type="Self.TB_TIPO_ACAO" Multiplicity="1" />
+          <End Role="TB_ACAO" Type="Self.TB_ACAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_TIPO_ACAO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_ACAO">
+              <PropertyRef Name="ID_TIPO_ACAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_ACTION__ID_CO__36B12243">
+          <End Role="TB_CONTROLER" Type="Self.TB_CONTROLER" Multiplicity="1" />
+          <End Role="TB_ACTION" Type="Self.TB_ACTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_CONTROLER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_ACTION">
+              <PropertyRef Name="ID_CONTROLLER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_AGENDA__ID_DI__498EEC8D">
+          <End Role="TB_DISPARADOR" Type="Self.TB_DISPARADOR" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TB_AGENDA_EXECUCAO" Type="Self.TB_AGENDA_EXECUCAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_DISPARADOR">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_AGENDA_EXECUCAO">
+              <PropertyRef Name="ID_DISPARADOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_CLIENT__ID_TI__3B75D760">
+          <End Role="TB_TIPO_PESSOA" Type="Self.TB_TIPO_PESSOA" Multiplicity="1" />
+          <End Role="TB_CLIENTE" Type="Self.TB_CLIENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_TIPO_PESSOA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_CLIENTE">
+              <PropertyRef Name="ID_TIPO_PESSOA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_CONTAT__ID_UN__4E88ABD4">
+          <End Role="TB_UNIDADE" Type="Self.TB_UNIDADE" Multiplicity="1" />
+          <End Role="TB_CONTATO" Type="Self.TB_CONTATO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_UNIDADE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_CONTATO">
+              <PropertyRef Name="ID_UNIDADE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_CONTAT__TB_TI__4F7CD00D">
+          <End Role="TB_TIPO_CONTATO" Type="Self.TB_TIPO_CONTATO" Multiplicity="1" />
+          <End Role="TB_CONTATO" Type="Self.TB_CONTATO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_TIPO_CONTATO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_CONTATO">
+              <PropertyRef Name="TB_TIPO_CONTATO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_DEPART__ID_CL__6C190EBB">
+          <End Role="TB_CLIENTE" Type="Self.TB_CLIENTE" Multiplicity="1" />
+          <End Role="TB_DEPARTAMENTO_CLIENTE" Type="Self.TB_DEPARTAMENTO_CLIENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_CLIENTE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_DEPARTAMENTO_CLIENTE">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_DISPAR__ID_TA__3E1D39E1">
+          <End Role="TB_TAREFA" Type="Self.TB_TAREFA" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TB_DISPARADOR" Type="Self.TB_DISPARADOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_TAREFA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_DISPARADOR">
+              <PropertyRef Name="ID_TAREFA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_DISPAR__ID_TI__3F115E1A">
+          <End Role="TB_TIPO_DISPARADOR" Type="Self.TB_TIPO_DISPARADOR" Multiplicity="1" />
+          <End Role="TB_DISPARADOR" Type="Self.TB_DISPARADOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_TIPO_DISPARADOR">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_DISPARADOR">
+              <PropertyRef Name="ID_TIPO_DISPARADOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_ENDERE__ID_TI__66603565">
+          <End Role="TB_TIPO_LOGRADOURO" Type="Self.TB_TIPO_LOGRADOURO" Multiplicity="1" />
+          <End Role="TB_ENDERECO" Type="Self.TB_ENDERECO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_TIPO_LOGRADOURO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_ENDERECO">
+              <PropertyRef Name="ID_TIPO_LOGRADOURO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_ENDERE__ID_UN__656C112C">
+          <End Role="TB_UNIDADE" Type="Self.TB_UNIDADE" Multiplicity="1" />
+          <End Role="TB_ENDERECO" Type="Self.TB_ENDERECO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_UNIDADE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_ENDERECO">
+              <PropertyRef Name="ID_UNIDADE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_ENDERE__TB_CI__6754599E">
+          <End Role="TB_CIDADE" Type="Self.TB_CIDADE" Multiplicity="1" />
+          <End Role="TB_ENDERECO" Type="Self.TB_ENDERECO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_CIDADE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_ENDERECO">
+              <PropertyRef Name="TB_CIDADE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_FONTE___ID_DE__02084FDA">
+          <End Role="TB_DEPARTAMENTO_CLIENTE" Type="Self.TB_DEPARTAMENTO_CLIENTE" Multiplicity="1" />
+          <End Role="TB_FONTE_DEPARTAMENTO" Type="Self.TB_FONTE_DEPARTAMENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_DEPARTAMENTO_CLIENTE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_FONTE_DEPARTAMENTO">
+              <PropertyRef Name="ID_DEPARTAMENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_FONTE___ID_FO__02FC7413">
+          <End Role="TB_FONTE_PAGADORA" Type="Self.TB_FONTE_PAGADORA" Multiplicity="1" />
+          <End Role="TB_FONTE_DEPARTAMENTO" Type="Self.TB_FONTE_DEPARTAMENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_FONTE_PAGADORA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_FONTE_DEPARTAMENTO">
+              <PropertyRef Name="ID_FONTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_FONTE___ID_FO__5441852A">
+          <End Role="TB_FONTE_PAGADORA" Type="Self.TB_FONTE_PAGADORA" Multiplicity="1" />
+          <End Role="TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO" Type="Self.TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_FONTE_PAGADORA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO">
+              <PropertyRef Name="ID_FONTE_PAGADORA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_FONTE___ID_FO__5535A963">
+          <End Role="TB_FONTE_PAGADORA_PARAMETRO" Type="Self.TB_FONTE_PAGADORA_PARAMETRO" Multiplicity="1" />
+          <End Role="TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO" Type="Self.TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_FONTE_PAGADORA_PARAMETRO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO">
+              <PropertyRef Name="ID_FONTE_PAGADORA_PARAMETRO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_GRUPO___ID_AC__44CA3770">
+          <End Role="TB_ACAO" Type="Self.TB_ACAO" Multiplicity="1" />
+          <End Role="TB_GRUPO_NOTIFICACAO_ACAO" Type="Self.TB_GRUPO_NOTIFICACAO_ACAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_ACAO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_GRUPO_NOTIFICACAO_ACAO">
+              <PropertyRef Name="ID_ACAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_GRUPO___ID_GR__43D61337">
+          <End Role="TB_GRUPO_NOTIFICACAO" Type="Self.TB_GRUPO_NOTIFICACAO" Multiplicity="1" />
+          <End Role="TB_GRUPO_NOTIFICACAO_ACAO" Type="Self.TB_GRUPO_NOTIFICACAO_ACAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_GRUPO_NOTIFICACAO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_GRUPO_NOTIFICACAO_ACAO">
+              <PropertyRef Name="ID_GRUPO_NOTIFICACAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_GRUPO___ID_GR__49C3F6B7">
+          <End Role="TB_GRUPO_NOTIFICACAO" Type="Self.TB_GRUPO_NOTIFICACAO" Multiplicity="1" />
+          <End Role="TB_GRUPO_NOTIFICACAO_REMETENTE" Type="Self.TB_GRUPO_NOTIFICACAO_REMETENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_GRUPO_NOTIFICACAO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_GRUPO_NOTIFICACAO_REMETENTE">
+              <PropertyRef Name="ID_GRUPO_NOTIFICACAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_GRUPO___ID_TI__44FF419A">
+          <End Role="TB_TIPO_NOTIFICACAO" Type="Self.TB_TIPO_NOTIFICACAO" Multiplicity="1" />
+          <End Role="TB_GRUPO_NOTIFICACAO" Type="Self.TB_GRUPO_NOTIFICACAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_TIPO_NOTIFICACAO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_GRUPO_NOTIFICACAO">
+              <PropertyRef Name="ID_TIPO_NOTIFICACAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_HISTOR__ID_TA__2739D489">
+          <End Role="TB_TAREFA" Type="Self.TB_TAREFA" Multiplicity="1" />
+          <End Role="TB_HISTORICO_EXECUCAO" Type="Self.TB_HISTORICO_EXECUCAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_TAREFA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_HISTORICO_EXECUCAO">
+              <PropertyRef Name="ID_TAREFA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_LOG_AC__ID_AC__7D439ABD">
+          <End Role="TB_ACTION" Type="Self.TB_ACTION" Multiplicity="1" />
+          <End Role="TB_LOG_ACESSO" Type="Self.TB_LOG_ACESSO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_ACTION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_LOG_ACESSO">
+              <PropertyRef Name="ID_ACTION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_LOG_AC__ID_US__7C4F7684">
+          <End Role="TB_USUARIO" Type="Self.TB_USUARIO" Multiplicity="1" />
+          <End Role="TB_LOG_ACESSO" Type="Self.TB_LOG_ACESSO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_USUARIO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_LOG_ACESSO">
+              <PropertyRef Name="ID_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_LOG_SI__ID_AC__22751F6C">
+          <End Role="TB_ACTION" Type="Self.TB_ACTION" Multiplicity="1" />
+          <End Role="TB_LOG_SISTEMA" Type="Self.TB_LOG_SISTEMA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_ACTION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_LOG_SISTEMA">
+              <PropertyRef Name="ID_ACTION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_LOG_SI__ID_MO__2180FB33">
+          <End Role="TB_MODULO" Type="Self.TB_MODULO" Multiplicity="1" />
+          <End Role="TB_LOG_SISTEMA" Type="Self.TB_LOG_SISTEMA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_MODULO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_LOG_SISTEMA">
+              <PropertyRef Name="ID_MODULO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_LOG_SI__ID_US__208CD6FA">
+          <End Role="TB_USUARIO" Type="Self.TB_USUARIO" Multiplicity="1" />
+          <End Role="TB_LOG_SISTEMA" Type="Self.TB_LOG_SISTEMA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_USUARIO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_LOG_SISTEMA">
+              <PropertyRef Name="ID_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_MODULO__ID_DE__08B54D69">
+          <End Role="TB_DEPARTAMENTO_CLIENTE" Type="Self.TB_DEPARTAMENTO_CLIENTE" Multiplicity="1" />
+          <End Role="TB_MODULO_DEPARTAMENTO" Type="Self.TB_MODULO_DEPARTAMENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_DEPARTAMENTO_CLIENTE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_MODULO_DEPARTAMENTO">
+              <PropertyRef Name="ID_DEPARTAMENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_MODULO__ID_MO__07C12930">
+          <End Role="TB_MODULO" Type="Self.TB_MODULO" Multiplicity="1" />
+          <End Role="TB_MODULO_DEPARTAMENTO" Type="Self.TB_MODULO_DEPARTAMENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_MODULO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_MODULO_DEPARTAMENTO">
+              <PropertyRef Name="ID_MODULO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_PERMIS__ID_AC__60A75C0F">
+          <End Role="TB_ACTION" Type="Self.TB_ACTION" Multiplicity="1" />
+          <End Role="TB_PERMISSOES_GRUPO" Type="Self.TB_PERMISSOES_GRUPO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_ACTION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_PERMISSOES_GRUPO">
+              <PropertyRef Name="ID_ACTION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_PERMIS__ID_GR__5FB337D6">
+          <End Role="TB_USUARIO_GRUPO" Type="Self.TB_USUARIO_GRUPO" Multiplicity="1" />
+          <End Role="TB_PERMISSOES_GRUPO" Type="Self.TB_PERMISSOES_GRUPO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_USUARIO_GRUPO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_PERMISSOES_GRUPO">
+              <PropertyRef Name="ID_GRUPO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_SUBMEN__ID_AC__5AEE82B9">
+          <End Role="TB_ACTION" Type="Self.TB_ACTION" Multiplicity="1" />
+          <End Role="TB_SUBMENU" Type="Self.TB_SUBMENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_ACTION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_SUBMENU">
+              <PropertyRef Name="ID_ACTION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_SUBMEN__ID_ME__59FA5E80">
+          <End Role="TB_MENU" Type="Self.TB_MENU" Multiplicity="1" />
+          <End Role="TB_SUBMENU" Type="Self.TB_SUBMENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_MENU">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_SUBMENU">
+              <PropertyRef Name="ID_MENU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_TAREFA__ID_FO__151B244E">
+          <End Role="TB_FONTE_DEPARTAMENTO" Type="Self.TB_FONTE_DEPARTAMENTO" Multiplicity="1" />
+          <End Role="TB_TAREFA_FONTE" Type="Self.TB_TAREFA_FONTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_FONTE_DEPARTAMENTO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_TAREFA_FONTE">
+              <PropertyRef Name="ID_FONTE_DEPARTAMENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_TAREFA__ID_FO__1BC821DD">
+          <End Role="TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO" Type="Self.TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO" Multiplicity="1" />
+          <End Role="TB_TAREFA_FONTE_ACESSO" Type="Self.TB_TAREFA_FONTE_ACESSO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_TAREFA_FONTE_ACESSO">
+              <PropertyRef Name="ID_FONTE_PARAMETRO_DEFINICAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_TAREFA__ID_MO__0F624AF8">
+          <End Role="TB_MODULO" Type="Self.TB_MODULO" Multiplicity="1" />
+          <End Role="TB_TAREFA" Type="Self.TB_TAREFA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_MODULO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_TAREFA">
+              <PropertyRef Name="ID_MODULO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_TAREFA__ID_TA__14270015">
+          <End Role="TB_TAREFA" Type="Self.TB_TAREFA" Multiplicity="1" />
+          <End Role="TB_TAREFA_FONTE" Type="Self.TB_TAREFA_FONTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_TAREFA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_TAREFA_FONTE">
+              <PropertyRef Name="ID_TAREFA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_TAREFA__ID_TA__19DFD96B">
+          <End Role="TB_TAREFA_FONTE" Type="Self.TB_TAREFA_FONTE" Multiplicity="1" />
+          <End Role="TB_TAREFA_FONTE_ACESSO" Type="Self.TB_TAREFA_FONTE_ACESSO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_TAREFA_FONTE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_TAREFA_FONTE_ACESSO">
+              <PropertyRef Name="ID_TAREFA_FONTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_TAREFA__ID_TA__37703C52">
+          <End Role="TB_TAREFA" Type="Self.TB_TAREFA" Multiplicity="1" />
+          <End Role="TB_TAREFA_PROXIMA" Type="Self.TB_TAREFA_PROXIMA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_TAREFA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_TAREFA_PROXIMA">
+              <PropertyRef Name="ID_TAREFA_ATUAL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_TAREFA__ID_TA__3864608B">
+          <End Role="TB_TAREFA" Type="Self.TB_TAREFA" Multiplicity="1" />
+          <End Role="TB_TAREFA_PROXIMA" Type="Self.TB_TAREFA_PROXIMA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_TAREFA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_TAREFA_PROXIMA">
+              <PropertyRef Name="ID_TAREFA_PROXIMA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_TAREFA__ID_UN__1AD3FDA4">
+          <End Role="TB_UNIDADE" Type="Self.TB_UNIDADE" Multiplicity="1" />
+          <End Role="TB_TAREFA_FONTE_ACESSO" Type="Self.TB_TAREFA_FONTE_ACESSO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_UNIDADE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_TAREFA_FONTE_ACESSO">
+              <PropertyRef Name="ID_UNIDADE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_TAREFA__ID_US__0E6E26BF">
+          <End Role="TB_USUARIO" Type="Self.TB_USUARIO" Multiplicity="1" />
+          <End Role="TB_TAREFA" Type="Self.TB_TAREFA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_USUARIO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_TAREFA">
+              <PropertyRef Name="ID_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_TAREFA__TB_TA__31B762FC">
+          <End Role="TB_TAREFA" Type="Self.TB_TAREFA" Multiplicity="1" />
+          <End Role="TB_TAREFA_TIPO_ENTREGA" Type="Self.TB_TAREFA_TIPO_ENTREGA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_TAREFA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_TAREFA_TIPO_ENTREGA">
+              <PropertyRef Name="TB_TAREFA_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_TAREFA__TB_TI__32AB8735">
+          <End Role="TB_TIPO_ENTREGA" Type="Self.TB_TIPO_ENTREGA" Multiplicity="1" />
+          <End Role="TB_TAREFA_TIPO_ENTREGA" Type="Self.TB_TAREFA_TIPO_ENTREGA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_TIPO_ENTREGA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_TAREFA_TIPO_ENTREGA">
+              <PropertyRef Name="TB_TIPO_ENTREGA_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_UNIDAD__ID_CL__403A8C7D">
+          <End Role="TB_CLIENTE" Type="Self.TB_CLIENTE" Multiplicity="1" />
+          <End Role="TB_UNIDADE" Type="Self.TB_UNIDADE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_CLIENTE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_UNIDADE">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_USUARI__ID_AC__778AC167">
+          <End Role="TB_ACTION" Type="Self.TB_ACTION" Multiplicity="1" />
+          <End Role="TB_USUARIO_ACTION" Type="Self.TB_USUARIO_ACTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_ACTION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_USUARIO_ACTION">
+              <PropertyRef Name="ID_ACTION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_USUARI__ID_DE__71D1E811">
+          <End Role="TB_DEPARTAMENTO_CLIENTE" Type="Self.TB_DEPARTAMENTO_CLIENTE" Multiplicity="1" />
+          <End Role="TB_USUARIO" Type="Self.TB_USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_DEPARTAMENTO_CLIENTE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_USUARIO">
+              <PropertyRef Name="ID_DEPARTAMENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_USUARI__ID_GR__70DDC3D8">
+          <End Role="TB_USUARIO_GRUPO" Type="Self.TB_USUARIO_GRUPO" Multiplicity="1" />
+          <End Role="TB_USUARIO" Type="Self.TB_USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_USUARIO_GRUPO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_USUARIO">
+              <PropertyRef Name="ID_GRUPO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_USUARI__ID_US__76969D2E">
+          <End Role="TB_USUARIO" Type="Self.TB_USUARIO" Multiplicity="1" />
+          <End Role="TB_USUARIO_ACTION" Type="Self.TB_USUARIO_ACTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_USUARIO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_USUARIO_ACTION">
+              <PropertyRef Name="ID_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="SP_LOGAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="COD_USUARIO" Type="varchar" Mode="In" />
+          <Parameter Name="DES_SENHA" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="YOUNITY_ONEModelStoreContainer">
+          <EntitySet Name="TB_ACAO" EntityType="Self.TB_ACAO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_ACTION" EntityType="Self.TB_ACTION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_AGENDA_EXECUCAO" EntityType="Self.TB_AGENDA_EXECUCAO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_CIDADE" EntityType="Self.TB_CIDADE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_CLIENTE" EntityType="Self.TB_CLIENTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_CONTATO" EntityType="Self.TB_CONTATO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_CONTROLER" EntityType="Self.TB_CONTROLER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_DEPARTAMENTO_CLIENTE" EntityType="Self.TB_DEPARTAMENTO_CLIENTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_DISPARADOR" EntityType="Self.TB_DISPARADOR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_ENDERECO" EntityType="Self.TB_ENDERECO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_FONTE_DEPARTAMENTO" EntityType="Self.TB_FONTE_DEPARTAMENTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_FONTE_PAGADORA" EntityType="Self.TB_FONTE_PAGADORA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_FONTE_PAGADORA_PARAMETRO" EntityType="Self.TB_FONTE_PAGADORA_PARAMETRO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO" EntityType="Self.TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_GRUPO_NOTIFICACAO" EntityType="Self.TB_GRUPO_NOTIFICACAO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_GRUPO_NOTIFICACAO_ACAO" EntityType="Self.TB_GRUPO_NOTIFICACAO_ACAO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_GRUPO_NOTIFICACAO_REMETENTE" EntityType="Self.TB_GRUPO_NOTIFICACAO_REMETENTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_HISTORICO_EXECUCAO" EntityType="Self.TB_HISTORICO_EXECUCAO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_LOG_ACESSO" EntityType="Self.TB_LOG_ACESSO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_LOG_SISTEMA" EntityType="Self.TB_LOG_SISTEMA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_MENU" EntityType="Self.TB_MENU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_MODULO" EntityType="Self.TB_MODULO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_MODULO_DEPARTAMENTO" EntityType="Self.TB_MODULO_DEPARTAMENTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_PERMISSOES_GRUPO" EntityType="Self.TB_PERMISSOES_GRUPO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_SUBMENU" EntityType="Self.TB_SUBMENU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_TAREFA" EntityType="Self.TB_TAREFA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_TAREFA_FONTE" EntityType="Self.TB_TAREFA_FONTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_TAREFA_FONTE_ACESSO" EntityType="Self.TB_TAREFA_FONTE_ACESSO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_TAREFA_PROXIMA" EntityType="Self.TB_TAREFA_PROXIMA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_TAREFA_TIPO_ENTREGA" EntityType="Self.TB_TAREFA_TIPO_ENTREGA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_TIPO_ACAO" EntityType="Self.TB_TIPO_ACAO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_TIPO_CONTATO" EntityType="Self.TB_TIPO_CONTATO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_TIPO_DISPARADOR" EntityType="Self.TB_TIPO_DISPARADOR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_TIPO_ENTREGA" EntityType="Self.TB_TIPO_ENTREGA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_TIPO_LOGRADOURO" EntityType="Self.TB_TIPO_LOGRADOURO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_TIPO_NOTIFICACAO" EntityType="Self.TB_TIPO_NOTIFICACAO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_TIPO_PESSOA" EntityType="Self.TB_TIPO_PESSOA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_UNIDADE" EntityType="Self.TB_UNIDADE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_USUARIO" EntityType="Self.TB_USUARIO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_USUARIO_ACTION" EntityType="Self.TB_USUARIO_ACTION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_USUARIO_GRUPO" EntityType="Self.TB_USUARIO_GRUPO" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__TB_ACAO__ID_TARE__2BFE89A6" Association="Self.FK__TB_ACAO__ID_TARE__2BFE89A6">
+            <End Role="TB_TAREFA" EntitySet="TB_TAREFA" />
+            <End Role="TB_ACAO" EntitySet="TB_ACAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_ACAO__ID_TIPO__2CF2ADDF" Association="Self.FK__TB_ACAO__ID_TIPO__2CF2ADDF">
+            <End Role="TB_TIPO_ACAO" EntitySet="TB_TIPO_ACAO" />
+            <End Role="TB_ACAO" EntitySet="TB_ACAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_ACTION__ID_CO__36B12243" Association="Self.FK__TB_ACTION__ID_CO__36B12243">
+            <End Role="TB_CONTROLER" EntitySet="TB_CONTROLER" />
+            <End Role="TB_ACTION" EntitySet="TB_ACTION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_AGENDA__ID_DI__498EEC8D" Association="Self.FK__TB_AGENDA__ID_DI__498EEC8D">
+            <End Role="TB_DISPARADOR" EntitySet="TB_DISPARADOR" />
+            <End Role="TB_AGENDA_EXECUCAO" EntitySet="TB_AGENDA_EXECUCAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_CLIENT__ID_TI__3B75D760" Association="Self.FK__TB_CLIENT__ID_TI__3B75D760">
+            <End Role="TB_TIPO_PESSOA" EntitySet="TB_TIPO_PESSOA" />
+            <End Role="TB_CLIENTE" EntitySet="TB_CLIENTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_CONTAT__ID_UN__4E88ABD4" Association="Self.FK__TB_CONTAT__ID_UN__4E88ABD4">
+            <End Role="TB_UNIDADE" EntitySet="TB_UNIDADE" />
+            <End Role="TB_CONTATO" EntitySet="TB_CONTATO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_CONTAT__TB_TI__4F7CD00D" Association="Self.FK__TB_CONTAT__TB_TI__4F7CD00D">
+            <End Role="TB_TIPO_CONTATO" EntitySet="TB_TIPO_CONTATO" />
+            <End Role="TB_CONTATO" EntitySet="TB_CONTATO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_DEPART__ID_CL__6C190EBB" Association="Self.FK__TB_DEPART__ID_CL__6C190EBB">
+            <End Role="TB_CLIENTE" EntitySet="TB_CLIENTE" />
+            <End Role="TB_DEPARTAMENTO_CLIENTE" EntitySet="TB_DEPARTAMENTO_CLIENTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_DISPAR__ID_TA__3E1D39E1" Association="Self.FK__TB_DISPAR__ID_TA__3E1D39E1">
+            <End Role="TB_TAREFA" EntitySet="TB_TAREFA" />
+            <End Role="TB_DISPARADOR" EntitySet="TB_DISPARADOR" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_DISPAR__ID_TI__3F115E1A" Association="Self.FK__TB_DISPAR__ID_TI__3F115E1A">
+            <End Role="TB_TIPO_DISPARADOR" EntitySet="TB_TIPO_DISPARADOR" />
+            <End Role="TB_DISPARADOR" EntitySet="TB_DISPARADOR" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_ENDERE__ID_TI__66603565" Association="Self.FK__TB_ENDERE__ID_TI__66603565">
+            <End Role="TB_TIPO_LOGRADOURO" EntitySet="TB_TIPO_LOGRADOURO" />
+            <End Role="TB_ENDERECO" EntitySet="TB_ENDERECO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_ENDERE__ID_UN__656C112C" Association="Self.FK__TB_ENDERE__ID_UN__656C112C">
+            <End Role="TB_UNIDADE" EntitySet="TB_UNIDADE" />
+            <End Role="TB_ENDERECO" EntitySet="TB_ENDERECO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_ENDERE__TB_CI__6754599E" Association="Self.FK__TB_ENDERE__TB_CI__6754599E">
+            <End Role="TB_CIDADE" EntitySet="TB_CIDADE" />
+            <End Role="TB_ENDERECO" EntitySet="TB_ENDERECO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_FONTE___ID_DE__02084FDA" Association="Self.FK__TB_FONTE___ID_DE__02084FDA">
+            <End Role="TB_DEPARTAMENTO_CLIENTE" EntitySet="TB_DEPARTAMENTO_CLIENTE" />
+            <End Role="TB_FONTE_DEPARTAMENTO" EntitySet="TB_FONTE_DEPARTAMENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_FONTE___ID_FO__02FC7413" Association="Self.FK__TB_FONTE___ID_FO__02FC7413">
+            <End Role="TB_FONTE_PAGADORA" EntitySet="TB_FONTE_PAGADORA" />
+            <End Role="TB_FONTE_DEPARTAMENTO" EntitySet="TB_FONTE_DEPARTAMENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_FONTE___ID_FO__5441852A" Association="Self.FK__TB_FONTE___ID_FO__5441852A">
+            <End Role="TB_FONTE_PAGADORA" EntitySet="TB_FONTE_PAGADORA" />
+            <End Role="TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO" EntitySet="TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_FONTE___ID_FO__5535A963" Association="Self.FK__TB_FONTE___ID_FO__5535A963">
+            <End Role="TB_FONTE_PAGADORA_PARAMETRO" EntitySet="TB_FONTE_PAGADORA_PARAMETRO" />
+            <End Role="TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO" EntitySet="TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_GRUPO___ID_AC__44CA3770" Association="Self.FK__TB_GRUPO___ID_AC__44CA3770">
+            <End Role="TB_ACAO" EntitySet="TB_ACAO" />
+            <End Role="TB_GRUPO_NOTIFICACAO_ACAO" EntitySet="TB_GRUPO_NOTIFICACAO_ACAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_GRUPO___ID_GR__43D61337" Association="Self.FK__TB_GRUPO___ID_GR__43D61337">
+            <End Role="TB_GRUPO_NOTIFICACAO" EntitySet="TB_GRUPO_NOTIFICACAO" />
+            <End Role="TB_GRUPO_NOTIFICACAO_ACAO" EntitySet="TB_GRUPO_NOTIFICACAO_ACAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_GRUPO___ID_GR__49C3F6B7" Association="Self.FK__TB_GRUPO___ID_GR__49C3F6B7">
+            <End Role="TB_GRUPO_NOTIFICACAO" EntitySet="TB_GRUPO_NOTIFICACAO" />
+            <End Role="TB_GRUPO_NOTIFICACAO_REMETENTE" EntitySet="TB_GRUPO_NOTIFICACAO_REMETENTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_GRUPO___ID_TI__44FF419A" Association="Self.FK__TB_GRUPO___ID_TI__44FF419A">
+            <End Role="TB_TIPO_NOTIFICACAO" EntitySet="TB_TIPO_NOTIFICACAO" />
+            <End Role="TB_GRUPO_NOTIFICACAO" EntitySet="TB_GRUPO_NOTIFICACAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_HISTOR__ID_TA__2739D489" Association="Self.FK__TB_HISTOR__ID_TA__2739D489">
+            <End Role="TB_TAREFA" EntitySet="TB_TAREFA" />
+            <End Role="TB_HISTORICO_EXECUCAO" EntitySet="TB_HISTORICO_EXECUCAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_LOG_AC__ID_AC__7D439ABD" Association="Self.FK__TB_LOG_AC__ID_AC__7D439ABD">
+            <End Role="TB_ACTION" EntitySet="TB_ACTION" />
+            <End Role="TB_LOG_ACESSO" EntitySet="TB_LOG_ACESSO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_LOG_AC__ID_US__7C4F7684" Association="Self.FK__TB_LOG_AC__ID_US__7C4F7684">
+            <End Role="TB_USUARIO" EntitySet="TB_USUARIO" />
+            <End Role="TB_LOG_ACESSO" EntitySet="TB_LOG_ACESSO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_LOG_SI__ID_AC__22751F6C" Association="Self.FK__TB_LOG_SI__ID_AC__22751F6C">
+            <End Role="TB_ACTION" EntitySet="TB_ACTION" />
+            <End Role="TB_LOG_SISTEMA" EntitySet="TB_LOG_SISTEMA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_LOG_SI__ID_MO__2180FB33" Association="Self.FK__TB_LOG_SI__ID_MO__2180FB33">
+            <End Role="TB_MODULO" EntitySet="TB_MODULO" />
+            <End Role="TB_LOG_SISTEMA" EntitySet="TB_LOG_SISTEMA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_LOG_SI__ID_US__208CD6FA" Association="Self.FK__TB_LOG_SI__ID_US__208CD6FA">
+            <End Role="TB_USUARIO" EntitySet="TB_USUARIO" />
+            <End Role="TB_LOG_SISTEMA" EntitySet="TB_LOG_SISTEMA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_MODULO__ID_DE__08B54D69" Association="Self.FK__TB_MODULO__ID_DE__08B54D69">
+            <End Role="TB_DEPARTAMENTO_CLIENTE" EntitySet="TB_DEPARTAMENTO_CLIENTE" />
+            <End Role="TB_MODULO_DEPARTAMENTO" EntitySet="TB_MODULO_DEPARTAMENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_MODULO__ID_MO__07C12930" Association="Self.FK__TB_MODULO__ID_MO__07C12930">
+            <End Role="TB_MODULO" EntitySet="TB_MODULO" />
+            <End Role="TB_MODULO_DEPARTAMENTO" EntitySet="TB_MODULO_DEPARTAMENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_PERMIS__ID_AC__60A75C0F" Association="Self.FK__TB_PERMIS__ID_AC__60A75C0F">
+            <End Role="TB_ACTION" EntitySet="TB_ACTION" />
+            <End Role="TB_PERMISSOES_GRUPO" EntitySet="TB_PERMISSOES_GRUPO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_PERMIS__ID_GR__5FB337D6" Association="Self.FK__TB_PERMIS__ID_GR__5FB337D6">
+            <End Role="TB_USUARIO_GRUPO" EntitySet="TB_USUARIO_GRUPO" />
+            <End Role="TB_PERMISSOES_GRUPO" EntitySet="TB_PERMISSOES_GRUPO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_SUBMEN__ID_AC__5AEE82B9" Association="Self.FK__TB_SUBMEN__ID_AC__5AEE82B9">
+            <End Role="TB_ACTION" EntitySet="TB_ACTION" />
+            <End Role="TB_SUBMENU" EntitySet="TB_SUBMENU" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_SUBMEN__ID_ME__59FA5E80" Association="Self.FK__TB_SUBMEN__ID_ME__59FA5E80">
+            <End Role="TB_MENU" EntitySet="TB_MENU" />
+            <End Role="TB_SUBMENU" EntitySet="TB_SUBMENU" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_TAREFA__ID_FO__151B244E" Association="Self.FK__TB_TAREFA__ID_FO__151B244E">
+            <End Role="TB_FONTE_DEPARTAMENTO" EntitySet="TB_FONTE_DEPARTAMENTO" />
+            <End Role="TB_TAREFA_FONTE" EntitySet="TB_TAREFA_FONTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_TAREFA__ID_FO__1BC821DD" Association="Self.FK__TB_TAREFA__ID_FO__1BC821DD">
+            <End Role="TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO" EntitySet="TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO" />
+            <End Role="TB_TAREFA_FONTE_ACESSO" EntitySet="TB_TAREFA_FONTE_ACESSO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_TAREFA__ID_MO__0F624AF8" Association="Self.FK__TB_TAREFA__ID_MO__0F624AF8">
+            <End Role="TB_MODULO" EntitySet="TB_MODULO" />
+            <End Role="TB_TAREFA" EntitySet="TB_TAREFA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_TAREFA__ID_TA__14270015" Association="Self.FK__TB_TAREFA__ID_TA__14270015">
+            <End Role="TB_TAREFA" EntitySet="TB_TAREFA" />
+            <End Role="TB_TAREFA_FONTE" EntitySet="TB_TAREFA_FONTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_TAREFA__ID_TA__19DFD96B" Association="Self.FK__TB_TAREFA__ID_TA__19DFD96B">
+            <End Role="TB_TAREFA_FONTE" EntitySet="TB_TAREFA_FONTE" />
+            <End Role="TB_TAREFA_FONTE_ACESSO" EntitySet="TB_TAREFA_FONTE_ACESSO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_TAREFA__ID_TA__37703C52" Association="Self.FK__TB_TAREFA__ID_TA__37703C52">
+            <End Role="TB_TAREFA" EntitySet="TB_TAREFA" />
+            <End Role="TB_TAREFA_PROXIMA" EntitySet="TB_TAREFA_PROXIMA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_TAREFA__ID_TA__3864608B" Association="Self.FK__TB_TAREFA__ID_TA__3864608B">
+            <End Role="TB_TAREFA" EntitySet="TB_TAREFA" />
+            <End Role="TB_TAREFA_PROXIMA" EntitySet="TB_TAREFA_PROXIMA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_TAREFA__ID_UN__1AD3FDA4" Association="Self.FK__TB_TAREFA__ID_UN__1AD3FDA4">
+            <End Role="TB_UNIDADE" EntitySet="TB_UNIDADE" />
+            <End Role="TB_TAREFA_FONTE_ACESSO" EntitySet="TB_TAREFA_FONTE_ACESSO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_TAREFA__ID_US__0E6E26BF" Association="Self.FK__TB_TAREFA__ID_US__0E6E26BF">
+            <End Role="TB_USUARIO" EntitySet="TB_USUARIO" />
+            <End Role="TB_TAREFA" EntitySet="TB_TAREFA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_TAREFA__TB_TA__31B762FC" Association="Self.FK__TB_TAREFA__TB_TA__31B762FC">
+            <End Role="TB_TAREFA" EntitySet="TB_TAREFA" />
+            <End Role="TB_TAREFA_TIPO_ENTREGA" EntitySet="TB_TAREFA_TIPO_ENTREGA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_TAREFA__TB_TI__32AB8735" Association="Self.FK__TB_TAREFA__TB_TI__32AB8735">
+            <End Role="TB_TIPO_ENTREGA" EntitySet="TB_TIPO_ENTREGA" />
+            <End Role="TB_TAREFA_TIPO_ENTREGA" EntitySet="TB_TAREFA_TIPO_ENTREGA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_UNIDAD__ID_CL__403A8C7D" Association="Self.FK__TB_UNIDAD__ID_CL__403A8C7D">
+            <End Role="TB_CLIENTE" EntitySet="TB_CLIENTE" />
+            <End Role="TB_UNIDADE" EntitySet="TB_UNIDADE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_USUARI__ID_AC__778AC167" Association="Self.FK__TB_USUARI__ID_AC__778AC167">
+            <End Role="TB_ACTION" EntitySet="TB_ACTION" />
+            <End Role="TB_USUARIO_ACTION" EntitySet="TB_USUARIO_ACTION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_USUARI__ID_DE__71D1E811" Association="Self.FK__TB_USUARI__ID_DE__71D1E811">
+            <End Role="TB_DEPARTAMENTO_CLIENTE" EntitySet="TB_DEPARTAMENTO_CLIENTE" />
+            <End Role="TB_USUARIO" EntitySet="TB_USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_USUARI__ID_GR__70DDC3D8" Association="Self.FK__TB_USUARI__ID_GR__70DDC3D8">
+            <End Role="TB_USUARIO_GRUPO" EntitySet="TB_USUARIO_GRUPO" />
+            <End Role="TB_USUARIO" EntitySet="TB_USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_USUARI__ID_US__76969D2E" Association="Self.FK__TB_USUARI__ID_US__76969D2E">
+            <End Role="TB_USUARIO" EntitySet="TB_USUARIO" />
+            <End Role="TB_USUARIO_ACTION" EntitySet="TB_USUARIO_ACTION" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="YOUNITY_ONEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TB_ACAO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID_TIPO_ACAO" Type="Int32" Nullable="false" />
+          <Property Name="ID_TAREFA" Type="Int32" Nullable="false" />
+          <Property Name="NOM_CAMINHO_APP" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DES_ARGUMENTO" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="NUM_ORDEM_EXECUCAO" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TB_TAREFA" Relationship="Self.FK__TB_ACAO__ID_TARE__2BFE89A6" FromRole="TB_ACAO" ToRole="TB_TAREFA" />
+          <NavigationProperty Name="TB_TIPO_ACAO" Relationship="Self.FK__TB_ACAO__ID_TIPO__2CF2ADDF" FromRole="TB_ACAO" ToRole="TB_TIPO_ACAO" />
+          <NavigationProperty Name="TB_GRUPO_NOTIFICACAO_ACAO" Relationship="Self.FK__TB_GRUPO___ID_AC__44CA3770" FromRole="TB_ACAO" ToRole="TB_GRUPO_NOTIFICACAO_ACAO" />
+        </EntityType>
+        <EntityType Name="TB_ACTION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_CONTROLLER" Type="Int32" Nullable="false" />
+          <Property Name="NOM_ACTION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="TB_CONTROLER" Relationship="Self.FK__TB_ACTION__ID_CO__36B12243" FromRole="TB_ACTION" ToRole="TB_CONTROLER" />
+          <NavigationProperty Name="TB_LOG_ACESSO" Relationship="Self.FK__TB_LOG_AC__ID_AC__7D439ABD" FromRole="TB_ACTION" ToRole="TB_LOG_ACESSO" />
+          <NavigationProperty Name="TB_LOG_SISTEMA" Relationship="Self.FK__TB_LOG_SI__ID_AC__22751F6C" FromRole="TB_ACTION" ToRole="TB_LOG_SISTEMA" />
+          <NavigationProperty Name="TB_PERMISSOES_GRUPO" Relationship="Self.FK__TB_PERMIS__ID_AC__60A75C0F" FromRole="TB_ACTION" ToRole="TB_PERMISSOES_GRUPO" />
+          <NavigationProperty Name="TB_SUBMENU" Relationship="Self.FK__TB_SUBMEN__ID_AC__5AEE82B9" FromRole="TB_ACTION" ToRole="TB_SUBMENU" />
+          <NavigationProperty Name="TB_USUARIO_ACTION" Relationship="Self.FK__TB_USUARI__ID_AC__778AC167" FromRole="TB_ACTION" ToRole="TB_USUARIO_ACTION" />
+        </EntityType>
+        <EntityType Name="TB_AGENDA_EXECUCAO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_DISPARADOR" Type="Int32" Nullable="false" />
+          <Property Name="DTH_EXECUCAO" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="TB_DISPARADOR" Relationship="Self.FK__TB_AGENDA__ID_DI__498EEC8D" FromRole="TB_AGENDA_EXECUCAO" ToRole="TB_DISPARADOR" />
+        </EntityType>
+        <EntityType Name="TB_CIDADE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOM_CIDADE" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="SIG_UF" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TB_ENDERECO" Relationship="Self.FK__TB_ENDERE__TB_CI__6754599E" FromRole="TB_CIDADE" ToRole="TB_ENDERECO" />
+        </EntityType>
+        <EntityType Name="TB_CLIENTE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_TIPO_PESSOA" Type="Int32" Nullable="false" />
+          <Property Name="NOM_FANTASIA" Type="String" MaxLength="400" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NOM_RAZAO" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NUM_DOCUMENTO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FLG_ATIVO" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TB_TIPO_PESSOA" Relationship="Self.FK__TB_CLIENT__ID_TI__3B75D760" FromRole="TB_CLIENTE" ToRole="TB_TIPO_PESSOA" />
+          <NavigationProperty Name="TB_DEPARTAMENTO_CLIENTE" Relationship="Self.FK__TB_DEPART__ID_CL__6C190EBB" FromRole="TB_CLIENTE" ToRole="TB_DEPARTAMENTO_CLIENTE" />
+          <NavigationProperty Name="TB_UNIDADE" Relationship="Self.FK__TB_UNIDAD__ID_CL__403A8C7D" FromRole="TB_CLIENTE" ToRole="TB_UNIDADE" />
+        </EntityType>
+        <EntityType Name="TB_CONTATO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TB_TIPO_CONTATO_ID" Type="Int32" Nullable="false" />
+          <Property Name="ID_UNIDADE" Type="Int32" Nullable="false" />
+          <Property Name="DES_CONTATO" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NOM_CONTATO" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="FLG_ATIVO" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TB_UNIDADE" Relationship="Self.FK__TB_CONTAT__ID_UN__4E88ABD4" FromRole="TB_CONTATO" ToRole="TB_UNIDADE" />
+          <NavigationProperty Name="TB_TIPO_CONTATO" Relationship="Self.FK__TB_CONTAT__TB_TI__4F7CD00D" FromRole="TB_CONTATO" ToRole="TB_TIPO_CONTATO" />
+        </EntityType>
+        <EntityType Name="TB_CONTROLER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOM_CONTROLLER" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="TB_ACTION" Relationship="Self.FK__TB_ACTION__ID_CO__36B12243" FromRole="TB_CONTROLER" ToRole="TB_ACTION" />
+        </EntityType>
+        <EntityType Name="TB_DEPARTAMENTO_CLIENTE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_CLIENTE" Type="Int32" Nullable="false" />
+          <Property Name="NOM_DEPARTAMENTO" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FLG_ATIVO" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TB_CLIENTE" Relationship="Self.FK__TB_DEPART__ID_CL__6C190EBB" FromRole="TB_DEPARTAMENTO_CLIENTE" ToRole="TB_CLIENTE" />
+          <NavigationProperty Name="TB_FONTE_DEPARTAMENTO" Relationship="Self.FK__TB_FONTE___ID_DE__02084FDA" FromRole="TB_DEPARTAMENTO_CLIENTE" ToRole="TB_FONTE_DEPARTAMENTO" />
+          <NavigationProperty Name="TB_MODULO_DEPARTAMENTO" Relationship="Self.FK__TB_MODULO__ID_DE__08B54D69" FromRole="TB_DEPARTAMENTO_CLIENTE" ToRole="TB_MODULO_DEPARTAMENTO" />
+          <NavigationProperty Name="TB_USUARIO" Relationship="Self.FK__TB_USUARI__ID_DE__71D1E811" FromRole="TB_DEPARTAMENTO_CLIENTE" ToRole="TB_USUARIO" />
+        </EntityType>
+        <EntityType Name="TB_DISPARADOR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID_TIPO_DISPARADOR" Type="Int32" Nullable="false" />
+          <Property Name="ID_TAREFA" Type="Int32" Nullable="false" />
+          <Property Name="DTH_INICIO" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DTH_FIM" Type="DateTime" Precision="3" />
+          <Property Name="FLG_DOMINGO" Type="Boolean" />
+          <Property Name="FLG_SEGUNDA" Type="Boolean" />
+          <Property Name="FLG_TERCA" Type="Boolean" />
+          <Property Name="FLG_QUARTA" Type="Boolean" />
+          <Property Name="FLG_QUINTA" Type="Boolean" />
+          <Property Name="FLG_SEXTA" Type="Boolean" />
+          <Property Name="FLG_SABADO" Type="Boolean" />
+          <Property Name="NUM_REPETICAO" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TB_AGENDA_EXECUCAO" Relationship="Self.FK__TB_AGENDA__ID_DI__498EEC8D" FromRole="TB_DISPARADOR" ToRole="TB_AGENDA_EXECUCAO" />
+          <NavigationProperty Name="TB_TAREFA" Relationship="Self.FK__TB_DISPAR__ID_TA__3E1D39E1" FromRole="TB_DISPARADOR" ToRole="TB_TAREFA" />
+          <NavigationProperty Name="TB_TIPO_DISPARADOR" Relationship="Self.FK__TB_DISPAR__ID_TI__3F115E1A" FromRole="TB_DISPARADOR" ToRole="TB_TIPO_DISPARADOR" />
+        </EntityType>
+        <EntityType Name="TB_ENDERECO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TB_CIDADE_ID" Type="Int32" Nullable="false" />
+          <Property Name="ID_TIPO_LOGRADOURO" Type="Int32" Nullable="false" />
+          <Property Name="ID_UNIDADE" Type="Int32" Nullable="false" />
+          <Property Name="DES_ENDERECO" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DES_NUMERO_ALTURA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DES_COMPLEMENTO" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TB_CIDADE" Relationship="Self.FK__TB_ENDERE__TB_CI__6754599E" FromRole="TB_ENDERECO" ToRole="TB_CIDADE" />
+          <NavigationProperty Name="TB_TIPO_LOGRADOURO" Relationship="Self.FK__TB_ENDERE__ID_TI__66603565" FromRole="TB_ENDERECO" ToRole="TB_TIPO_LOGRADOURO" />
+          <NavigationProperty Name="TB_UNIDADE" Relationship="Self.FK__TB_ENDERE__ID_UN__656C112C" FromRole="TB_ENDERECO" ToRole="TB_UNIDADE" />
+        </EntityType>
+        <EntityType Name="TB_FONTE_DEPARTAMENTO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_FONTE" Type="Int32" Nullable="false" />
+          <Property Name="ID_DEPARTAMENTO" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TB_DEPARTAMENTO_CLIENTE" Relationship="Self.FK__TB_FONTE___ID_DE__02084FDA" FromRole="TB_FONTE_DEPARTAMENTO" ToRole="TB_DEPARTAMENTO_CLIENTE" />
+          <NavigationProperty Name="TB_FONTE_PAGADORA" Relationship="Self.FK__TB_FONTE___ID_FO__02FC7413" FromRole="TB_FONTE_DEPARTAMENTO" ToRole="TB_FONTE_PAGADORA" />
+          <NavigationProperty Name="TB_TAREFA_FONTE" Relationship="Self.FK__TB_TAREFA__ID_FO__151B244E" FromRole="TB_FONTE_DEPARTAMENTO" ToRole="TB_TAREFA_FONTE" />
+        </EntityType>
+        <EntityType Name="TB_FONTE_PAGADORA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOM_FONTE" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="END_SITE" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FLG_ATIVO" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TB_FONTE_DEPARTAMENTO" Relationship="Self.FK__TB_FONTE___ID_FO__02FC7413" FromRole="TB_FONTE_PAGADORA" ToRole="TB_FONTE_DEPARTAMENTO" />
+          <NavigationProperty Name="TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO" Relationship="Self.FK__TB_FONTE___ID_FO__5441852A" FromRole="TB_FONTE_PAGADORA" ToRole="TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO" />
+        </EntityType>
+        <EntityType Name="TB_FONTE_PAGADORA_PARAMETRO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOM_PARAMETRO" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO" Relationship="Self.FK__TB_FONTE___ID_FO__5535A963" FromRole="TB_FONTE_PAGADORA_PARAMETRO" ToRole="TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO" />
+        </EntityType>
+        <EntityType Name="TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_FONTE_PAGADORA_PARAMETRO" Type="Int32" Nullable="false" />
+          <Property Name="ID_FONTE_PAGADORA" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TB_FONTE_PAGADORA" Relationship="Self.FK__TB_FONTE___ID_FO__5441852A" FromRole="TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO" ToRole="TB_FONTE_PAGADORA" />
+          <NavigationProperty Name="TB_FONTE_PAGADORA_PARAMETRO" Relationship="Self.FK__TB_FONTE___ID_FO__5535A963" FromRole="TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO" ToRole="TB_FONTE_PAGADORA_PARAMETRO" />
+          <NavigationProperty Name="TB_TAREFA_FONTE_ACESSO" Relationship="Self.FK__TB_TAREFA__ID_FO__1BC821DD" FromRole="TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO" ToRole="TB_TAREFA_FONTE_ACESSO" />
+        </EntityType>
+        <EntityType Name="TB_GRUPO_NOTIFICACAO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_TIPO_NOTIFICACAO" Type="Int32" Nullable="false" />
+          <Property Name="DES_GRUPO" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TB_GRUPO_NOTIFICACAO_ACAO" Relationship="Self.FK__TB_GRUPO___ID_GR__43D61337" FromRole="TB_GRUPO_NOTIFICACAO" ToRole="TB_GRUPO_NOTIFICACAO_ACAO" />
+          <NavigationProperty Name="TB_GRUPO_NOTIFICACAO_REMETENTE" Relationship="Self.FK__TB_GRUPO___ID_GR__49C3F6B7" FromRole="TB_GRUPO_NOTIFICACAO" ToRole="TB_GRUPO_NOTIFICACAO_REMETENTE" />
+          <NavigationProperty Name="TB_TIPO_NOTIFICACAO" Relationship="Self.FK__TB_GRUPO___ID_TI__44FF419A" FromRole="TB_GRUPO_NOTIFICACAO" ToRole="TB_TIPO_NOTIFICACAO" />
+        </EntityType>
+        <EntityType Name="TB_GRUPO_NOTIFICACAO_ACAO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_GRUPO_NOTIFICACAO" Type="Int32" Nullable="false" />
+          <Property Name="ID_ACAO" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TB_ACAO" Relationship="Self.FK__TB_GRUPO___ID_AC__44CA3770" FromRole="TB_GRUPO_NOTIFICACAO_ACAO" ToRole="TB_ACAO" />
+          <NavigationProperty Name="TB_GRUPO_NOTIFICACAO" Relationship="Self.FK__TB_GRUPO___ID_GR__43D61337" FromRole="TB_GRUPO_NOTIFICACAO_ACAO" ToRole="TB_GRUPO_NOTIFICACAO" />
+        </EntityType>
+        <EntityType Name="TB_GRUPO_NOTIFICACAO_REMETENTE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_GRUPO_NOTIFICACAO" Type="Int32" Nullable="false" />
+          <Property Name="NOM_REMETENTE" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NUM_TELEFONE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="END_MAIL" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="FLG_ATIVO" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TB_GRUPO_NOTIFICACAO" Relationship="Self.FK__TB_GRUPO___ID_GR__49C3F6B7" FromRole="TB_GRUPO_NOTIFICACAO_REMETENTE" ToRole="TB_GRUPO_NOTIFICACAO" />
+        </EntityType>
+        <EntityType Name="TB_HISTORICO_EXECUCAO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_TAREFA" Type="Int32" Nullable="false" />
+          <Property Name="FLG_SUCESSO" Type="Boolean" Nullable="false" />
+          <Property Name="DES_DETALHE" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DTH_EXECUCAO" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="TB_TAREFA" Relationship="Self.FK__TB_HISTOR__ID_TA__2739D489" FromRole="TB_HISTORICO_EXECUCAO" ToRole="TB_TAREFA" />
+        </EntityType>
+        <EntityType Name="TB_LOG_ACESSO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_ACTION" Type="Int32" Nullable="false" />
+          <Property Name="ID_USUARIO" Type="Int32" Nullable="false" />
+          <Property Name="DTH_ACAO" Type="DateTime" Precision="3" />
+          <Property Name="NUM_IP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TB_ACTION" Relationship="Self.FK__TB_LOG_AC__ID_AC__7D439ABD" FromRole="TB_LOG_ACESSO" ToRole="TB_ACTION" />
+          <NavigationProperty Name="TB_USUARIO" Relationship="Self.FK__TB_LOG_AC__ID_US__7C4F7684" FromRole="TB_LOG_ACESSO" ToRole="TB_USUARIO" />
+        </EntityType>
+        <EntityType Name="TB_LOG_SISTEMA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_ACTION" Type="Int32" Nullable="false" />
+          <Property Name="ID_MODULO" Type="Int32" Nullable="false" />
+          <Property Name="ID_USUARIO" Type="Int32" Nullable="false" />
+          <Property Name="DTH_ACAO" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FLG_ERRO" Type="Boolean" Nullable="false" />
+          <Property Name="DES_ACAO" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NUM_IP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TB_ACTION" Relationship="Self.FK__TB_LOG_SI__ID_AC__22751F6C" FromRole="TB_LOG_SISTEMA" ToRole="TB_ACTION" />
+          <NavigationProperty Name="TB_MODULO" Relationship="Self.FK__TB_LOG_SI__ID_MO__2180FB33" FromRole="TB_LOG_SISTEMA" ToRole="TB_MODULO" />
+          <NavigationProperty Name="TB_USUARIO" Relationship="Self.FK__TB_LOG_SI__ID_US__208CD6FA" FromRole="TB_LOG_SISTEMA" ToRole="TB_USUARIO" />
+        </EntityType>
+        <EntityType Name="TB_MENU">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOM_MENU" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NUM_ORDEM" Type="Int32" Nullable="false" />
+          <Property Name="FLG_ATIVO" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TB_SUBMENU" Relationship="Self.FK__TB_SUBMEN__ID_ME__59FA5E80" FromRole="TB_MENU" ToRole="TB_SUBMENU" />
+        </EntityType>
+        <EntityType Name="TB_MODULO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOM_MODULO" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DES_MODULO" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FLG_ATIVO" Type="Boolean" />
+          <NavigationProperty Name="TB_LOG_SISTEMA" Relationship="Self.FK__TB_LOG_SI__ID_MO__2180FB33" FromRole="TB_MODULO" ToRole="TB_LOG_SISTEMA" />
+          <NavigationProperty Name="TB_MODULO_DEPARTAMENTO" Relationship="Self.FK__TB_MODULO__ID_MO__07C12930" FromRole="TB_MODULO" ToRole="TB_MODULO_DEPARTAMENTO" />
+          <NavigationProperty Name="TB_TAREFA" Relationship="Self.FK__TB_TAREFA__ID_MO__0F624AF8" FromRole="TB_MODULO" ToRole="TB_TAREFA" />
+        </EntityType>
+        <EntityType Name="TB_MODULO_DEPARTAMENTO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_DEPARTAMENTO" Type="Int32" Nullable="false" />
+          <Property Name="ID_MODULO" Type="Int32" Nullable="false" />
+          <Property Name="FLG_ATIVO" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TB_DEPARTAMENTO_CLIENTE" Relationship="Self.FK__TB_MODULO__ID_DE__08B54D69" FromRole="TB_MODULO_DEPARTAMENTO" ToRole="TB_DEPARTAMENTO_CLIENTE" />
+          <NavigationProperty Name="TB_MODULO" Relationship="Self.FK__TB_MODULO__ID_MO__07C12930" FromRole="TB_MODULO_DEPARTAMENTO" ToRole="TB_MODULO" />
+        </EntityType>
+        <EntityType Name="TB_PERMISSOES_GRUPO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_ACTION" Type="Int32" Nullable="false" />
+          <Property Name="ID_GRUPO" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TB_ACTION" Relationship="Self.FK__TB_PERMIS__ID_AC__60A75C0F" FromRole="TB_PERMISSOES_GRUPO" ToRole="TB_ACTION" />
+          <NavigationProperty Name="TB_USUARIO_GRUPO" Relationship="Self.FK__TB_PERMIS__ID_GR__5FB337D6" FromRole="TB_PERMISSOES_GRUPO" ToRole="TB_USUARIO_GRUPO" />
+        </EntityType>
+        <EntityType Name="TB_SUBMENU">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_ACTION" Type="Int32" Nullable="false" />
+          <Property Name="ID_MENU" Type="Int32" Nullable="false" />
+          <Property Name="NOM_SUBMENU" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NUM_ORDEM" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TB_ACTION" Relationship="Self.FK__TB_SUBMEN__ID_AC__5AEE82B9" FromRole="TB_SUBMENU" ToRole="TB_ACTION" />
+          <NavigationProperty Name="TB_MENU" Relationship="Self.FK__TB_SUBMEN__ID_ME__59FA5E80" FromRole="TB_SUBMENU" ToRole="TB_MENU" />
+        </EntityType>
+        <EntityType Name="TB_TAREFA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_USUARIO" Type="Int32" Nullable="false" />
+          <Property Name="ID_MODULO" Type="Int32" Nullable="false" />
+          <Property Name="NOM_TAREFA" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DES_TAREFA" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+          <Property Name="FLG_ATIVO" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TB_ACAO" Relationship="Self.FK__TB_ACAO__ID_TARE__2BFE89A6" FromRole="TB_TAREFA" ToRole="TB_ACAO" />
+          <NavigationProperty Name="TB_DISPARADOR" Relationship="Self.FK__TB_DISPAR__ID_TA__3E1D39E1" FromRole="TB_TAREFA" ToRole="TB_DISPARADOR" />
+          <NavigationProperty Name="TB_HISTORICO_EXECUCAO" Relationship="Self.FK__TB_HISTOR__ID_TA__2739D489" FromRole="TB_TAREFA" ToRole="TB_HISTORICO_EXECUCAO" />
+          <NavigationProperty Name="TB_MODULO" Relationship="Self.FK__TB_TAREFA__ID_MO__0F624AF8" FromRole="TB_TAREFA" ToRole="TB_MODULO" />
+          <NavigationProperty Name="TB_TAREFA_FONTE" Relationship="Self.FK__TB_TAREFA__ID_TA__14270015" FromRole="TB_TAREFA" ToRole="TB_TAREFA_FONTE" />
+          <NavigationProperty Name="TB_TAREFA_PROXIMA" Relationship="Self.FK__TB_TAREFA__ID_TA__37703C52" FromRole="TB_TAREFA" ToRole="TB_TAREFA_PROXIMA" />
+          <NavigationProperty Name="TB_TAREFA_PROXIMA1" Relationship="Self.FK__TB_TAREFA__ID_TA__3864608B" FromRole="TB_TAREFA" ToRole="TB_TAREFA_PROXIMA" />
+          <NavigationProperty Name="TB_USUARIO" Relationship="Self.FK__TB_TAREFA__ID_US__0E6E26BF" FromRole="TB_TAREFA" ToRole="TB_USUARIO" />
+          <NavigationProperty Name="TB_TAREFA_TIPO_ENTREGA" Relationship="Self.FK__TB_TAREFA__TB_TA__31B762FC" FromRole="TB_TAREFA" ToRole="TB_TAREFA_TIPO_ENTREGA" />
+        </EntityType>
+        <EntityType Name="TB_TAREFA_FONTE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID_FONTE_DEPARTAMENTO" Type="Int32" Nullable="false" />
+          <Property Name="ID_TAREFA" Type="Int32" Nullable="false" />
+          <Property Name="FLG_ATIVO" Type="Boolean" />
+          <NavigationProperty Name="TB_FONTE_DEPARTAMENTO" Relationship="Self.FK__TB_TAREFA__ID_FO__151B244E" FromRole="TB_TAREFA_FONTE" ToRole="TB_FONTE_DEPARTAMENTO" />
+          <NavigationProperty Name="TB_TAREFA" Relationship="Self.FK__TB_TAREFA__ID_TA__14270015" FromRole="TB_TAREFA_FONTE" ToRole="TB_TAREFA" />
+          <NavigationProperty Name="TB_TAREFA_FONTE_ACESSO" Relationship="Self.FK__TB_TAREFA__ID_TA__19DFD96B" FromRole="TB_TAREFA_FONTE" ToRole="TB_TAREFA_FONTE_ACESSO" />
+        </EntityType>
+        <EntityType Name="TB_TAREFA_FONTE_ACESSO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_UNIDADE" Type="Int32" Nullable="false" />
+          <Property Name="ID_FONTE_PARAMETRO_DEFINICAO" Type="Int32" Nullable="false" />
+          <Property Name="ID_TAREFA_FONTE" Type="Int32" Nullable="false" />
+          <Property Name="VAL_ACESSO" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO" Relationship="Self.FK__TB_TAREFA__ID_FO__1BC821DD" FromRole="TB_TAREFA_FONTE_ACESSO" ToRole="TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO" />
+          <NavigationProperty Name="TB_TAREFA_FONTE" Relationship="Self.FK__TB_TAREFA__ID_TA__19DFD96B" FromRole="TB_TAREFA_FONTE_ACESSO" ToRole="TB_TAREFA_FONTE" />
+          <NavigationProperty Name="TB_UNIDADE" Relationship="Self.FK__TB_TAREFA__ID_UN__1AD3FDA4" FromRole="TB_TAREFA_FONTE_ACESSO" ToRole="TB_UNIDADE" />
+        </EntityType>
+        <EntityType Name="TB_TAREFA_PROXIMA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_TAREFA_PROXIMA" Type="Int32" Nullable="false" />
+          <Property Name="ID_TAREFA_ATUAL" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TB_TAREFA" Relationship="Self.FK__TB_TAREFA__ID_TA__37703C52" FromRole="TB_TAREFA_PROXIMA" ToRole="TB_TAREFA" />
+          <NavigationProperty Name="TB_TAREFA1" Relationship="Self.FK__TB_TAREFA__ID_TA__3864608B" FromRole="TB_TAREFA_PROXIMA" ToRole="TB_TAREFA" />
+        </EntityType>
+        <EntityType Name="TB_TAREFA_TIPO_ENTREGA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TB_TIPO_ENTREGA_ID" Type="Int32" Nullable="false" />
+          <Property Name="TB_TAREFA_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TB_TAREFA" Relationship="Self.FK__TB_TAREFA__TB_TA__31B762FC" FromRole="TB_TAREFA_TIPO_ENTREGA" ToRole="TB_TAREFA" />
+          <NavigationProperty Name="TB_TIPO_ENTREGA" Relationship="Self.FK__TB_TAREFA__TB_TI__32AB8735" FromRole="TB_TAREFA_TIPO_ENTREGA" ToRole="TB_TIPO_ENTREGA" />
+        </EntityType>
+        <EntityType Name="TB_TIPO_ACAO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DES_TIPO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="TB_ACAO" Relationship="Self.FK__TB_ACAO__ID_TIPO__2CF2ADDF" FromRole="TB_TIPO_ACAO" ToRole="TB_ACAO" />
+        </EntityType>
+        <EntityType Name="TB_TIPO_CONTATO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DES_CONTATO" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DES_MASCARA" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TB_CONTATO" Relationship="Self.FK__TB_CONTAT__TB_TI__4F7CD00D" FromRole="TB_TIPO_CONTATO" ToRole="TB_CONTATO" />
+        </EntityType>
+        <EntityType Name="TB_TIPO_DISPARADOR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DES_TIPO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="TB_DISPARADOR" Relationship="Self.FK__TB_DISPAR__ID_TI__3F115E1A" FromRole="TB_TIPO_DISPARADOR" ToRole="TB_DISPARADOR" />
+        </EntityType>
+        <EntityType Name="TB_TIPO_ENTREGA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DES_TIPO_ENTREGA" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="FLG_ATIVO" Type="Boolean" />
+          <NavigationProperty Name="TB_TAREFA_TIPO_ENTREGA" Relationship="Self.FK__TB_TAREFA__TB_TI__32AB8735" FromRole="TB_TIPO_ENTREGA" ToRole="TB_TAREFA_TIPO_ENTREGA" />
+        </EntityType>
+        <EntityType Name="TB_TIPO_LOGRADOURO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DES_LOGRADOURO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TB_ENDERECO" Relationship="Self.FK__TB_ENDERE__ID_TI__66603565" FromRole="TB_TIPO_LOGRADOURO" ToRole="TB_ENDERECO" />
+        </EntityType>
+        <EntityType Name="TB_TIPO_NOTIFICACAO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DES_NOTIFICACAO" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FLG_ATIVO" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TB_GRUPO_NOTIFICACAO" Relationship="Self.FK__TB_GRUPO___ID_TI__44FF419A" FromRole="TB_TIPO_NOTIFICACAO" ToRole="TB_GRUPO_NOTIFICACAO" />
+        </EntityType>
+        <EntityType Name="TB_TIPO_PESSOA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DES_PESSOA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="TB_CLIENTE" Relationship="Self.FK__TB_CLIENT__ID_TI__3B75D760" FromRole="TB_TIPO_PESSOA" ToRole="TB_CLIENTE" />
+        </EntityType>
+        <EntityType Name="TB_UNIDADE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_CLIENTE" Type="Int32" Nullable="false" />
+          <Property Name="NUM_CNPJ" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="NOM_UNIDADE" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FLG_ATIVO" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TB_CLIENTE" Relationship="Self.FK__TB_UNIDAD__ID_CL__403A8C7D" FromRole="TB_UNIDADE" ToRole="TB_CLIENTE" />
+          <NavigationProperty Name="TB_CONTATO" Relationship="Self.FK__TB_CONTAT__ID_UN__4E88ABD4" FromRole="TB_UNIDADE" ToRole="TB_CONTATO" />
+          <NavigationProperty Name="TB_ENDERECO" Relationship="Self.FK__TB_ENDERE__ID_UN__656C112C" FromRole="TB_UNIDADE" ToRole="TB_ENDERECO" />
+          <NavigationProperty Name="TB_TAREFA_FONTE_ACESSO" Relationship="Self.FK__TB_TAREFA__ID_UN__1AD3FDA4" FromRole="TB_UNIDADE" ToRole="TB_TAREFA_FONTE_ACESSO" />
+        </EntityType>
+        <EntityType Name="TB_USUARIO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_DEPARTAMENTO" Type="Int32" Nullable="false" />
+          <Property Name="ID_GRUPO" Type="Int32" Nullable="false" />
+          <Property Name="COD_USUARIO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DES_SENHA" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="NOM_USUARIO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NUM_CPF" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="END_MAIL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FLG_ATIVO" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TB_DEPARTAMENTO_CLIENTE" Relationship="Self.FK__TB_USUARI__ID_DE__71D1E811" FromRole="TB_USUARIO" ToRole="TB_DEPARTAMENTO_CLIENTE" />
+          <NavigationProperty Name="TB_LOG_ACESSO" Relationship="Self.FK__TB_LOG_AC__ID_US__7C4F7684" FromRole="TB_USUARIO" ToRole="TB_LOG_ACESSO" />
+          <NavigationProperty Name="TB_LOG_SISTEMA" Relationship="Self.FK__TB_LOG_SI__ID_US__208CD6FA" FromRole="TB_USUARIO" ToRole="TB_LOG_SISTEMA" />
+          <NavigationProperty Name="TB_TAREFA" Relationship="Self.FK__TB_TAREFA__ID_US__0E6E26BF" FromRole="TB_USUARIO" ToRole="TB_TAREFA" />
+          <NavigationProperty Name="TB_USUARIO_GRUPO" Relationship="Self.FK__TB_USUARI__ID_GR__70DDC3D8" FromRole="TB_USUARIO" ToRole="TB_USUARIO_GRUPO" />
+          <NavigationProperty Name="TB_USUARIO_ACTION" Relationship="Self.FK__TB_USUARI__ID_US__76969D2E" FromRole="TB_USUARIO" ToRole="TB_USUARIO_ACTION" />
+        </EntityType>
+        <EntityType Name="TB_USUARIO_ACTION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_USUARIO" Type="Int32" Nullable="false" />
+          <Property Name="ID_ACTION" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TB_ACTION" Relationship="Self.FK__TB_USUARI__ID_AC__778AC167" FromRole="TB_USUARIO_ACTION" ToRole="TB_ACTION" />
+          <NavigationProperty Name="TB_USUARIO" Relationship="Self.FK__TB_USUARI__ID_US__76969D2E" FromRole="TB_USUARIO_ACTION" ToRole="TB_USUARIO" />
+        </EntityType>
+        <EntityType Name="TB_USUARIO_GRUPO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DES_GRUPO" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FLG_ATIVO" Type="Boolean" />
+          <NavigationProperty Name="TB_PERMISSOES_GRUPO" Relationship="Self.FK__TB_PERMIS__ID_GR__5FB337D6" FromRole="TB_USUARIO_GRUPO" ToRole="TB_PERMISSOES_GRUPO" />
+          <NavigationProperty Name="TB_USUARIO" Relationship="Self.FK__TB_USUARI__ID_GR__70DDC3D8" FromRole="TB_USUARIO_GRUPO" ToRole="TB_USUARIO" />
+        </EntityType>
+        <Association Name="FK__TB_ACAO__ID_TARE__2BFE89A6">
+          <End Role="TB_TAREFA" Type="Self.TB_TAREFA" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TB_ACAO" Type="Self.TB_ACAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_TAREFA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_ACAO">
+              <PropertyRef Name="ID_TAREFA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_ACAO__ID_TIPO__2CF2ADDF">
+          <End Role="TB_TIPO_ACAO" Type="Self.TB_TIPO_ACAO" Multiplicity="1" />
+          <End Role="TB_ACAO" Type="Self.TB_ACAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_TIPO_ACAO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_ACAO">
+              <PropertyRef Name="ID_TIPO_ACAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_GRUPO___ID_AC__44CA3770">
+          <End Role="TB_ACAO" Type="Self.TB_ACAO" Multiplicity="1" />
+          <End Role="TB_GRUPO_NOTIFICACAO_ACAO" Type="Self.TB_GRUPO_NOTIFICACAO_ACAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_ACAO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_GRUPO_NOTIFICACAO_ACAO">
+              <PropertyRef Name="ID_ACAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_ACTION__ID_CO__36B12243">
+          <End Role="TB_CONTROLER" Type="Self.TB_CONTROLER" Multiplicity="1" />
+          <End Role="TB_ACTION" Type="Self.TB_ACTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_CONTROLER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_ACTION">
+              <PropertyRef Name="ID_CONTROLLER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_LOG_AC__ID_AC__7D439ABD">
+          <End Role="TB_ACTION" Type="Self.TB_ACTION" Multiplicity="1" />
+          <End Role="TB_LOG_ACESSO" Type="Self.TB_LOG_ACESSO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_ACTION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_LOG_ACESSO">
+              <PropertyRef Name="ID_ACTION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_LOG_SI__ID_AC__22751F6C">
+          <End Role="TB_ACTION" Type="Self.TB_ACTION" Multiplicity="1" />
+          <End Role="TB_LOG_SISTEMA" Type="Self.TB_LOG_SISTEMA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_ACTION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_LOG_SISTEMA">
+              <PropertyRef Name="ID_ACTION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_PERMIS__ID_AC__60A75C0F">
+          <End Role="TB_ACTION" Type="Self.TB_ACTION" Multiplicity="1" />
+          <End Role="TB_PERMISSOES_GRUPO" Type="Self.TB_PERMISSOES_GRUPO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_ACTION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_PERMISSOES_GRUPO">
+              <PropertyRef Name="ID_ACTION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_SUBMEN__ID_AC__5AEE82B9">
+          <End Role="TB_ACTION" Type="Self.TB_ACTION" Multiplicity="1" />
+          <End Role="TB_SUBMENU" Type="Self.TB_SUBMENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_ACTION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_SUBMENU">
+              <PropertyRef Name="ID_ACTION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_USUARI__ID_AC__778AC167">
+          <End Role="TB_ACTION" Type="Self.TB_ACTION" Multiplicity="1" />
+          <End Role="TB_USUARIO_ACTION" Type="Self.TB_USUARIO_ACTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_ACTION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_USUARIO_ACTION">
+              <PropertyRef Name="ID_ACTION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_AGENDA__ID_DI__498EEC8D">
+          <End Role="TB_DISPARADOR" Type="Self.TB_DISPARADOR" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TB_AGENDA_EXECUCAO" Type="Self.TB_AGENDA_EXECUCAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_DISPARADOR">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_AGENDA_EXECUCAO">
+              <PropertyRef Name="ID_DISPARADOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_ENDERE__TB_CI__6754599E">
+          <End Role="TB_CIDADE" Type="Self.TB_CIDADE" Multiplicity="1" />
+          <End Role="TB_ENDERECO" Type="Self.TB_ENDERECO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_CIDADE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_ENDERECO">
+              <PropertyRef Name="TB_CIDADE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_CLIENT__ID_TI__3B75D760">
+          <End Role="TB_TIPO_PESSOA" Type="Self.TB_TIPO_PESSOA" Multiplicity="1" />
+          <End Role="TB_CLIENTE" Type="Self.TB_CLIENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_TIPO_PESSOA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_CLIENTE">
+              <PropertyRef Name="ID_TIPO_PESSOA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_DEPART__ID_CL__6C190EBB">
+          <End Role="TB_CLIENTE" Type="Self.TB_CLIENTE" Multiplicity="1" />
+          <End Role="TB_DEPARTAMENTO_CLIENTE" Type="Self.TB_DEPARTAMENTO_CLIENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_CLIENTE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_DEPARTAMENTO_CLIENTE">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_UNIDAD__ID_CL__403A8C7D">
+          <End Role="TB_CLIENTE" Type="Self.TB_CLIENTE" Multiplicity="1" />
+          <End Role="TB_UNIDADE" Type="Self.TB_UNIDADE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_CLIENTE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_UNIDADE">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_CONTAT__ID_UN__4E88ABD4">
+          <End Role="TB_UNIDADE" Type="Self.TB_UNIDADE" Multiplicity="1" />
+          <End Role="TB_CONTATO" Type="Self.TB_CONTATO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_UNIDADE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_CONTATO">
+              <PropertyRef Name="ID_UNIDADE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_CONTAT__TB_TI__4F7CD00D">
+          <End Role="TB_TIPO_CONTATO" Type="Self.TB_TIPO_CONTATO" Multiplicity="1" />
+          <End Role="TB_CONTATO" Type="Self.TB_CONTATO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_TIPO_CONTATO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_CONTATO">
+              <PropertyRef Name="TB_TIPO_CONTATO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_FONTE___ID_DE__02084FDA">
+          <End Role="TB_DEPARTAMENTO_CLIENTE" Type="Self.TB_DEPARTAMENTO_CLIENTE" Multiplicity="1" />
+          <End Role="TB_FONTE_DEPARTAMENTO" Type="Self.TB_FONTE_DEPARTAMENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_DEPARTAMENTO_CLIENTE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_FONTE_DEPARTAMENTO">
+              <PropertyRef Name="ID_DEPARTAMENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_MODULO__ID_DE__08B54D69">
+          <End Role="TB_DEPARTAMENTO_CLIENTE" Type="Self.TB_DEPARTAMENTO_CLIENTE" Multiplicity="1" />
+          <End Role="TB_MODULO_DEPARTAMENTO" Type="Self.TB_MODULO_DEPARTAMENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_DEPARTAMENTO_CLIENTE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_MODULO_DEPARTAMENTO">
+              <PropertyRef Name="ID_DEPARTAMENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_USUARI__ID_DE__71D1E811">
+          <End Role="TB_DEPARTAMENTO_CLIENTE" Type="Self.TB_DEPARTAMENTO_CLIENTE" Multiplicity="1" />
+          <End Role="TB_USUARIO" Type="Self.TB_USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_DEPARTAMENTO_CLIENTE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_USUARIO">
+              <PropertyRef Name="ID_DEPARTAMENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_DISPAR__ID_TA__3E1D39E1">
+          <End Role="TB_TAREFA" Type="Self.TB_TAREFA" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TB_DISPARADOR" Type="Self.TB_DISPARADOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_TAREFA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_DISPARADOR">
+              <PropertyRef Name="ID_TAREFA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_DISPAR__ID_TI__3F115E1A">
+          <End Role="TB_TIPO_DISPARADOR" Type="Self.TB_TIPO_DISPARADOR" Multiplicity="1" />
+          <End Role="TB_DISPARADOR" Type="Self.TB_DISPARADOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_TIPO_DISPARADOR">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_DISPARADOR">
+              <PropertyRef Name="ID_TIPO_DISPARADOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_ENDERE__ID_TI__66603565">
+          <End Role="TB_TIPO_LOGRADOURO" Type="Self.TB_TIPO_LOGRADOURO" Multiplicity="1" />
+          <End Role="TB_ENDERECO" Type="Self.TB_ENDERECO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_TIPO_LOGRADOURO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_ENDERECO">
+              <PropertyRef Name="ID_TIPO_LOGRADOURO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_ENDERE__ID_UN__656C112C">
+          <End Role="TB_UNIDADE" Type="Self.TB_UNIDADE" Multiplicity="1" />
+          <End Role="TB_ENDERECO" Type="Self.TB_ENDERECO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_UNIDADE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_ENDERECO">
+              <PropertyRef Name="ID_UNIDADE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_FONTE___ID_FO__02FC7413">
+          <End Role="TB_FONTE_PAGADORA" Type="Self.TB_FONTE_PAGADORA" Multiplicity="1" />
+          <End Role="TB_FONTE_DEPARTAMENTO" Type="Self.TB_FONTE_DEPARTAMENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_FONTE_PAGADORA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_FONTE_DEPARTAMENTO">
+              <PropertyRef Name="ID_FONTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_TAREFA__ID_FO__151B244E">
+          <End Role="TB_FONTE_DEPARTAMENTO" Type="Self.TB_FONTE_DEPARTAMENTO" Multiplicity="1" />
+          <End Role="TB_TAREFA_FONTE" Type="Self.TB_TAREFA_FONTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_FONTE_DEPARTAMENTO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_TAREFA_FONTE">
+              <PropertyRef Name="ID_FONTE_DEPARTAMENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_FONTE___ID_FO__5441852A">
+          <End Role="TB_FONTE_PAGADORA" Type="Self.TB_FONTE_PAGADORA" Multiplicity="1" />
+          <End Role="TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO" Type="Self.TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_FONTE_PAGADORA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO">
+              <PropertyRef Name="ID_FONTE_PAGADORA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_FONTE___ID_FO__5535A963">
+          <End Role="TB_FONTE_PAGADORA_PARAMETRO" Type="Self.TB_FONTE_PAGADORA_PARAMETRO" Multiplicity="1" />
+          <End Role="TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO" Type="Self.TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_FONTE_PAGADORA_PARAMETRO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO">
+              <PropertyRef Name="ID_FONTE_PAGADORA_PARAMETRO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_TAREFA__ID_FO__1BC821DD">
+          <End Role="TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO" Type="Self.TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO" Multiplicity="1" />
+          <End Role="TB_TAREFA_FONTE_ACESSO" Type="Self.TB_TAREFA_FONTE_ACESSO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_TAREFA_FONTE_ACESSO">
+              <PropertyRef Name="ID_FONTE_PARAMETRO_DEFINICAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_GRUPO___ID_GR__43D61337">
+          <End Role="TB_GRUPO_NOTIFICACAO" Type="Self.TB_GRUPO_NOTIFICACAO" Multiplicity="1" />
+          <End Role="TB_GRUPO_NOTIFICACAO_ACAO" Type="Self.TB_GRUPO_NOTIFICACAO_ACAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_GRUPO_NOTIFICACAO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_GRUPO_NOTIFICACAO_ACAO">
+              <PropertyRef Name="ID_GRUPO_NOTIFICACAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_GRUPO___ID_GR__49C3F6B7">
+          <End Role="TB_GRUPO_NOTIFICACAO" Type="Self.TB_GRUPO_NOTIFICACAO" Multiplicity="1" />
+          <End Role="TB_GRUPO_NOTIFICACAO_REMETENTE" Type="Self.TB_GRUPO_NOTIFICACAO_REMETENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_GRUPO_NOTIFICACAO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_GRUPO_NOTIFICACAO_REMETENTE">
+              <PropertyRef Name="ID_GRUPO_NOTIFICACAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_GRUPO___ID_TI__44FF419A">
+          <End Role="TB_TIPO_NOTIFICACAO" Type="Self.TB_TIPO_NOTIFICACAO" Multiplicity="1" />
+          <End Role="TB_GRUPO_NOTIFICACAO" Type="Self.TB_GRUPO_NOTIFICACAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_TIPO_NOTIFICACAO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_GRUPO_NOTIFICACAO">
+              <PropertyRef Name="ID_TIPO_NOTIFICACAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_HISTOR__ID_TA__2739D489">
+          <End Role="TB_TAREFA" Type="Self.TB_TAREFA" Multiplicity="1" />
+          <End Role="TB_HISTORICO_EXECUCAO" Type="Self.TB_HISTORICO_EXECUCAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_TAREFA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_HISTORICO_EXECUCAO">
+              <PropertyRef Name="ID_TAREFA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_LOG_AC__ID_US__7C4F7684">
+          <End Role="TB_USUARIO" Type="Self.TB_USUARIO" Multiplicity="1" />
+          <End Role="TB_LOG_ACESSO" Type="Self.TB_LOG_ACESSO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_USUARIO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_LOG_ACESSO">
+              <PropertyRef Name="ID_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_LOG_SI__ID_MO__2180FB33">
+          <End Role="TB_MODULO" Type="Self.TB_MODULO" Multiplicity="1" />
+          <End Role="TB_LOG_SISTEMA" Type="Self.TB_LOG_SISTEMA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_MODULO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_LOG_SISTEMA">
+              <PropertyRef Name="ID_MODULO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_LOG_SI__ID_US__208CD6FA">
+          <End Role="TB_USUARIO" Type="Self.TB_USUARIO" Multiplicity="1" />
+          <End Role="TB_LOG_SISTEMA" Type="Self.TB_LOG_SISTEMA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_USUARIO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_LOG_SISTEMA">
+              <PropertyRef Name="ID_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_SUBMEN__ID_ME__59FA5E80">
+          <End Role="TB_MENU" Type="Self.TB_MENU" Multiplicity="1" />
+          <End Role="TB_SUBMENU" Type="Self.TB_SUBMENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_MENU">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_SUBMENU">
+              <PropertyRef Name="ID_MENU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_MODULO__ID_MO__07C12930">
+          <End Role="TB_MODULO" Type="Self.TB_MODULO" Multiplicity="1" />
+          <End Role="TB_MODULO_DEPARTAMENTO" Type="Self.TB_MODULO_DEPARTAMENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_MODULO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_MODULO_DEPARTAMENTO">
+              <PropertyRef Name="ID_MODULO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_TAREFA__ID_MO__0F624AF8">
+          <End Role="TB_MODULO" Type="Self.TB_MODULO" Multiplicity="1" />
+          <End Role="TB_TAREFA" Type="Self.TB_TAREFA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_MODULO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_TAREFA">
+              <PropertyRef Name="ID_MODULO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_PERMIS__ID_GR__5FB337D6">
+          <End Role="TB_USUARIO_GRUPO" Type="Self.TB_USUARIO_GRUPO" Multiplicity="1" />
+          <End Role="TB_PERMISSOES_GRUPO" Type="Self.TB_PERMISSOES_GRUPO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_USUARIO_GRUPO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_PERMISSOES_GRUPO">
+              <PropertyRef Name="ID_GRUPO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_TAREFA__ID_TA__14270015">
+          <End Role="TB_TAREFA" Type="Self.TB_TAREFA" Multiplicity="1" />
+          <End Role="TB_TAREFA_FONTE" Type="Self.TB_TAREFA_FONTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_TAREFA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_TAREFA_FONTE">
+              <PropertyRef Name="ID_TAREFA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_TAREFA__ID_TA__37703C52">
+          <End Role="TB_TAREFA" Type="Self.TB_TAREFA" Multiplicity="1" />
+          <End Role="TB_TAREFA_PROXIMA" Type="Self.TB_TAREFA_PROXIMA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_TAREFA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_TAREFA_PROXIMA">
+              <PropertyRef Name="ID_TAREFA_ATUAL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_TAREFA__ID_TA__3864608B">
+          <End Role="TB_TAREFA" Type="Self.TB_TAREFA" Multiplicity="1" />
+          <End Role="TB_TAREFA_PROXIMA" Type="Self.TB_TAREFA_PROXIMA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_TAREFA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_TAREFA_PROXIMA">
+              <PropertyRef Name="ID_TAREFA_PROXIMA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_TAREFA__ID_US__0E6E26BF">
+          <End Role="TB_USUARIO" Type="Self.TB_USUARIO" Multiplicity="1" />
+          <End Role="TB_TAREFA" Type="Self.TB_TAREFA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_USUARIO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_TAREFA">
+              <PropertyRef Name="ID_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_TAREFA__TB_TA__31B762FC">
+          <End Role="TB_TAREFA" Type="Self.TB_TAREFA" Multiplicity="1" />
+          <End Role="TB_TAREFA_TIPO_ENTREGA" Type="Self.TB_TAREFA_TIPO_ENTREGA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_TAREFA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_TAREFA_TIPO_ENTREGA">
+              <PropertyRef Name="TB_TAREFA_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_TAREFA__ID_TA__19DFD96B">
+          <End Role="TB_TAREFA_FONTE" Type="Self.TB_TAREFA_FONTE" Multiplicity="1" />
+          <End Role="TB_TAREFA_FONTE_ACESSO" Type="Self.TB_TAREFA_FONTE_ACESSO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_TAREFA_FONTE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_TAREFA_FONTE_ACESSO">
+              <PropertyRef Name="ID_TAREFA_FONTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_TAREFA__ID_UN__1AD3FDA4">
+          <End Role="TB_UNIDADE" Type="Self.TB_UNIDADE" Multiplicity="1" />
+          <End Role="TB_TAREFA_FONTE_ACESSO" Type="Self.TB_TAREFA_FONTE_ACESSO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_UNIDADE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_TAREFA_FONTE_ACESSO">
+              <PropertyRef Name="ID_UNIDADE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_TAREFA__TB_TI__32AB8735">
+          <End Role="TB_TIPO_ENTREGA" Type="Self.TB_TIPO_ENTREGA" Multiplicity="1" />
+          <End Role="TB_TAREFA_TIPO_ENTREGA" Type="Self.TB_TAREFA_TIPO_ENTREGA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_TIPO_ENTREGA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_TAREFA_TIPO_ENTREGA">
+              <PropertyRef Name="TB_TIPO_ENTREGA_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_USUARI__ID_GR__70DDC3D8">
+          <End Role="TB_USUARIO_GRUPO" Type="Self.TB_USUARIO_GRUPO" Multiplicity="1" />
+          <End Role="TB_USUARIO" Type="Self.TB_USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_USUARIO_GRUPO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_USUARIO">
+              <PropertyRef Name="ID_GRUPO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TB_USUARI__ID_US__76969D2E">
+          <End Role="TB_USUARIO" Type="Self.TB_USUARIO" Multiplicity="1" />
+          <End Role="TB_USUARIO_ACTION" Type="Self.TB_USUARIO_ACTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_USUARIO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_USUARIO_ACTION">
+              <PropertyRef Name="ID_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="YOUNITY_ONEEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TB_ACAO" EntityType="Self.TB_ACAO" />
+          <EntitySet Name="TB_ACTION" EntityType="Self.TB_ACTION" />
+          <EntitySet Name="TB_AGENDA_EXECUCAO" EntityType="Self.TB_AGENDA_EXECUCAO" />
+          <EntitySet Name="TB_CIDADE" EntityType="Self.TB_CIDADE" />
+          <EntitySet Name="TB_CLIENTE" EntityType="Self.TB_CLIENTE" />
+          <EntitySet Name="TB_CONTATO" EntityType="Self.TB_CONTATO" />
+          <EntitySet Name="TB_CONTROLER" EntityType="Self.TB_CONTROLER" />
+          <EntitySet Name="TB_DEPARTAMENTO_CLIENTE" EntityType="Self.TB_DEPARTAMENTO_CLIENTE" />
+          <EntitySet Name="TB_DISPARADOR" EntityType="Self.TB_DISPARADOR" />
+          <EntitySet Name="TB_ENDERECO" EntityType="Self.TB_ENDERECO" />
+          <EntitySet Name="TB_FONTE_DEPARTAMENTO" EntityType="Self.TB_FONTE_DEPARTAMENTO" />
+          <EntitySet Name="TB_FONTE_PAGADORA" EntityType="Self.TB_FONTE_PAGADORA" />
+          <EntitySet Name="TB_FONTE_PAGADORA_PARAMETRO" EntityType="Self.TB_FONTE_PAGADORA_PARAMETRO" />
+          <EntitySet Name="TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO" EntityType="Self.TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO" />
+          <EntitySet Name="TB_GRUPO_NOTIFICACAO" EntityType="Self.TB_GRUPO_NOTIFICACAO" />
+          <EntitySet Name="TB_GRUPO_NOTIFICACAO_ACAO" EntityType="Self.TB_GRUPO_NOTIFICACAO_ACAO" />
+          <EntitySet Name="TB_GRUPO_NOTIFICACAO_REMETENTE" EntityType="Self.TB_GRUPO_NOTIFICACAO_REMETENTE" />
+          <EntitySet Name="TB_HISTORICO_EXECUCAO" EntityType="Self.TB_HISTORICO_EXECUCAO" />
+          <EntitySet Name="TB_LOG_ACESSO" EntityType="Self.TB_LOG_ACESSO" />
+          <EntitySet Name="TB_LOG_SISTEMA" EntityType="Self.TB_LOG_SISTEMA" />
+          <EntitySet Name="TB_MENU" EntityType="Self.TB_MENU" />
+          <EntitySet Name="TB_MODULO" EntityType="Self.TB_MODULO" />
+          <EntitySet Name="TB_MODULO_DEPARTAMENTO" EntityType="Self.TB_MODULO_DEPARTAMENTO" />
+          <EntitySet Name="TB_PERMISSOES_GRUPO" EntityType="Self.TB_PERMISSOES_GRUPO" />
+          <EntitySet Name="TB_SUBMENU" EntityType="Self.TB_SUBMENU" />
+          <EntitySet Name="TB_TAREFA" EntityType="Self.TB_TAREFA" />
+          <EntitySet Name="TB_TAREFA_FONTE" EntityType="Self.TB_TAREFA_FONTE" />
+          <EntitySet Name="TB_TAREFA_FONTE_ACESSO" EntityType="Self.TB_TAREFA_FONTE_ACESSO" />
+          <EntitySet Name="TB_TAREFA_PROXIMA" EntityType="Self.TB_TAREFA_PROXIMA" />
+          <EntitySet Name="TB_TAREFA_TIPO_ENTREGA" EntityType="Self.TB_TAREFA_TIPO_ENTREGA" />
+          <EntitySet Name="TB_TIPO_ACAO" EntityType="Self.TB_TIPO_ACAO" />
+          <EntitySet Name="TB_TIPO_CONTATO" EntityType="Self.TB_TIPO_CONTATO" />
+          <EntitySet Name="TB_TIPO_DISPARADOR" EntityType="Self.TB_TIPO_DISPARADOR" />
+          <EntitySet Name="TB_TIPO_ENTREGA" EntityType="Self.TB_TIPO_ENTREGA" />
+          <EntitySet Name="TB_TIPO_LOGRADOURO" EntityType="Self.TB_TIPO_LOGRADOURO" />
+          <EntitySet Name="TB_TIPO_NOTIFICACAO" EntityType="Self.TB_TIPO_NOTIFICACAO" />
+          <EntitySet Name="TB_TIPO_PESSOA" EntityType="Self.TB_TIPO_PESSOA" />
+          <EntitySet Name="TB_UNIDADE" EntityType="Self.TB_UNIDADE" />
+          <EntitySet Name="TB_USUARIO" EntityType="Self.TB_USUARIO" />
+          <EntitySet Name="TB_USUARIO_ACTION" EntityType="Self.TB_USUARIO_ACTION" />
+          <EntitySet Name="TB_USUARIO_GRUPO" EntityType="Self.TB_USUARIO_GRUPO" />
+          <AssociationSet Name="FK__TB_ACAO__ID_TARE__2BFE89A6" Association="Self.FK__TB_ACAO__ID_TARE__2BFE89A6">
+            <End Role="TB_TAREFA" EntitySet="TB_TAREFA" />
+            <End Role="TB_ACAO" EntitySet="TB_ACAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_ACAO__ID_TIPO__2CF2ADDF" Association="Self.FK__TB_ACAO__ID_TIPO__2CF2ADDF">
+            <End Role="TB_TIPO_ACAO" EntitySet="TB_TIPO_ACAO" />
+            <End Role="TB_ACAO" EntitySet="TB_ACAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_GRUPO___ID_AC__44CA3770" Association="Self.FK__TB_GRUPO___ID_AC__44CA3770">
+            <End Role="TB_ACAO" EntitySet="TB_ACAO" />
+            <End Role="TB_GRUPO_NOTIFICACAO_ACAO" EntitySet="TB_GRUPO_NOTIFICACAO_ACAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_ACTION__ID_CO__36B12243" Association="Self.FK__TB_ACTION__ID_CO__36B12243">
+            <End Role="TB_CONTROLER" EntitySet="TB_CONTROLER" />
+            <End Role="TB_ACTION" EntitySet="TB_ACTION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_LOG_AC__ID_AC__7D439ABD" Association="Self.FK__TB_LOG_AC__ID_AC__7D439ABD">
+            <End Role="TB_ACTION" EntitySet="TB_ACTION" />
+            <End Role="TB_LOG_ACESSO" EntitySet="TB_LOG_ACESSO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_LOG_SI__ID_AC__22751F6C" Association="Self.FK__TB_LOG_SI__ID_AC__22751F6C">
+            <End Role="TB_ACTION" EntitySet="TB_ACTION" />
+            <End Role="TB_LOG_SISTEMA" EntitySet="TB_LOG_SISTEMA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_PERMIS__ID_AC__60A75C0F" Association="Self.FK__TB_PERMIS__ID_AC__60A75C0F">
+            <End Role="TB_ACTION" EntitySet="TB_ACTION" />
+            <End Role="TB_PERMISSOES_GRUPO" EntitySet="TB_PERMISSOES_GRUPO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_SUBMEN__ID_AC__5AEE82B9" Association="Self.FK__TB_SUBMEN__ID_AC__5AEE82B9">
+            <End Role="TB_ACTION" EntitySet="TB_ACTION" />
+            <End Role="TB_SUBMENU" EntitySet="TB_SUBMENU" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_USUARI__ID_AC__778AC167" Association="Self.FK__TB_USUARI__ID_AC__778AC167">
+            <End Role="TB_ACTION" EntitySet="TB_ACTION" />
+            <End Role="TB_USUARIO_ACTION" EntitySet="TB_USUARIO_ACTION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_AGENDA__ID_DI__498EEC8D" Association="Self.FK__TB_AGENDA__ID_DI__498EEC8D">
+            <End Role="TB_DISPARADOR" EntitySet="TB_DISPARADOR" />
+            <End Role="TB_AGENDA_EXECUCAO" EntitySet="TB_AGENDA_EXECUCAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_ENDERE__TB_CI__6754599E" Association="Self.FK__TB_ENDERE__TB_CI__6754599E">
+            <End Role="TB_CIDADE" EntitySet="TB_CIDADE" />
+            <End Role="TB_ENDERECO" EntitySet="TB_ENDERECO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_CLIENT__ID_TI__3B75D760" Association="Self.FK__TB_CLIENT__ID_TI__3B75D760">
+            <End Role="TB_TIPO_PESSOA" EntitySet="TB_TIPO_PESSOA" />
+            <End Role="TB_CLIENTE" EntitySet="TB_CLIENTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_DEPART__ID_CL__6C190EBB" Association="Self.FK__TB_DEPART__ID_CL__6C190EBB">
+            <End Role="TB_CLIENTE" EntitySet="TB_CLIENTE" />
+            <End Role="TB_DEPARTAMENTO_CLIENTE" EntitySet="TB_DEPARTAMENTO_CLIENTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_UNIDAD__ID_CL__403A8C7D" Association="Self.FK__TB_UNIDAD__ID_CL__403A8C7D">
+            <End Role="TB_CLIENTE" EntitySet="TB_CLIENTE" />
+            <End Role="TB_UNIDADE" EntitySet="TB_UNIDADE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_CONTAT__ID_UN__4E88ABD4" Association="Self.FK__TB_CONTAT__ID_UN__4E88ABD4">
+            <End Role="TB_UNIDADE" EntitySet="TB_UNIDADE" />
+            <End Role="TB_CONTATO" EntitySet="TB_CONTATO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_CONTAT__TB_TI__4F7CD00D" Association="Self.FK__TB_CONTAT__TB_TI__4F7CD00D">
+            <End Role="TB_TIPO_CONTATO" EntitySet="TB_TIPO_CONTATO" />
+            <End Role="TB_CONTATO" EntitySet="TB_CONTATO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_FONTE___ID_DE__02084FDA" Association="Self.FK__TB_FONTE___ID_DE__02084FDA">
+            <End Role="TB_DEPARTAMENTO_CLIENTE" EntitySet="TB_DEPARTAMENTO_CLIENTE" />
+            <End Role="TB_FONTE_DEPARTAMENTO" EntitySet="TB_FONTE_DEPARTAMENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_MODULO__ID_DE__08B54D69" Association="Self.FK__TB_MODULO__ID_DE__08B54D69">
+            <End Role="TB_DEPARTAMENTO_CLIENTE" EntitySet="TB_DEPARTAMENTO_CLIENTE" />
+            <End Role="TB_MODULO_DEPARTAMENTO" EntitySet="TB_MODULO_DEPARTAMENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_USUARI__ID_DE__71D1E811" Association="Self.FK__TB_USUARI__ID_DE__71D1E811">
+            <End Role="TB_DEPARTAMENTO_CLIENTE" EntitySet="TB_DEPARTAMENTO_CLIENTE" />
+            <End Role="TB_USUARIO" EntitySet="TB_USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_DISPAR__ID_TA__3E1D39E1" Association="Self.FK__TB_DISPAR__ID_TA__3E1D39E1">
+            <End Role="TB_TAREFA" EntitySet="TB_TAREFA" />
+            <End Role="TB_DISPARADOR" EntitySet="TB_DISPARADOR" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_DISPAR__ID_TI__3F115E1A" Association="Self.FK__TB_DISPAR__ID_TI__3F115E1A">
+            <End Role="TB_TIPO_DISPARADOR" EntitySet="TB_TIPO_DISPARADOR" />
+            <End Role="TB_DISPARADOR" EntitySet="TB_DISPARADOR" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_ENDERE__ID_TI__66603565" Association="Self.FK__TB_ENDERE__ID_TI__66603565">
+            <End Role="TB_TIPO_LOGRADOURO" EntitySet="TB_TIPO_LOGRADOURO" />
+            <End Role="TB_ENDERECO" EntitySet="TB_ENDERECO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_ENDERE__ID_UN__656C112C" Association="Self.FK__TB_ENDERE__ID_UN__656C112C">
+            <End Role="TB_UNIDADE" EntitySet="TB_UNIDADE" />
+            <End Role="TB_ENDERECO" EntitySet="TB_ENDERECO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_FONTE___ID_FO__02FC7413" Association="Self.FK__TB_FONTE___ID_FO__02FC7413">
+            <End Role="TB_FONTE_PAGADORA" EntitySet="TB_FONTE_PAGADORA" />
+            <End Role="TB_FONTE_DEPARTAMENTO" EntitySet="TB_FONTE_DEPARTAMENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_TAREFA__ID_FO__151B244E" Association="Self.FK__TB_TAREFA__ID_FO__151B244E">
+            <End Role="TB_FONTE_DEPARTAMENTO" EntitySet="TB_FONTE_DEPARTAMENTO" />
+            <End Role="TB_TAREFA_FONTE" EntitySet="TB_TAREFA_FONTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_FONTE___ID_FO__5441852A" Association="Self.FK__TB_FONTE___ID_FO__5441852A">
+            <End Role="TB_FONTE_PAGADORA" EntitySet="TB_FONTE_PAGADORA" />
+            <End Role="TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO" EntitySet="TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_FONTE___ID_FO__5535A963" Association="Self.FK__TB_FONTE___ID_FO__5535A963">
+            <End Role="TB_FONTE_PAGADORA_PARAMETRO" EntitySet="TB_FONTE_PAGADORA_PARAMETRO" />
+            <End Role="TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO" EntitySet="TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_TAREFA__ID_FO__1BC821DD" Association="Self.FK__TB_TAREFA__ID_FO__1BC821DD">
+            <End Role="TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO" EntitySet="TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO" />
+            <End Role="TB_TAREFA_FONTE_ACESSO" EntitySet="TB_TAREFA_FONTE_ACESSO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_GRUPO___ID_GR__43D61337" Association="Self.FK__TB_GRUPO___ID_GR__43D61337">
+            <End Role="TB_GRUPO_NOTIFICACAO" EntitySet="TB_GRUPO_NOTIFICACAO" />
+            <End Role="TB_GRUPO_NOTIFICACAO_ACAO" EntitySet="TB_GRUPO_NOTIFICACAO_ACAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_GRUPO___ID_GR__49C3F6B7" Association="Self.FK__TB_GRUPO___ID_GR__49C3F6B7">
+            <End Role="TB_GRUPO_NOTIFICACAO" EntitySet="TB_GRUPO_NOTIFICACAO" />
+            <End Role="TB_GRUPO_NOTIFICACAO_REMETENTE" EntitySet="TB_GRUPO_NOTIFICACAO_REMETENTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_GRUPO___ID_TI__44FF419A" Association="Self.FK__TB_GRUPO___ID_TI__44FF419A">
+            <End Role="TB_TIPO_NOTIFICACAO" EntitySet="TB_TIPO_NOTIFICACAO" />
+            <End Role="TB_GRUPO_NOTIFICACAO" EntitySet="TB_GRUPO_NOTIFICACAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_HISTOR__ID_TA__2739D489" Association="Self.FK__TB_HISTOR__ID_TA__2739D489">
+            <End Role="TB_TAREFA" EntitySet="TB_TAREFA" />
+            <End Role="TB_HISTORICO_EXECUCAO" EntitySet="TB_HISTORICO_EXECUCAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_LOG_AC__ID_US__7C4F7684" Association="Self.FK__TB_LOG_AC__ID_US__7C4F7684">
+            <End Role="TB_USUARIO" EntitySet="TB_USUARIO" />
+            <End Role="TB_LOG_ACESSO" EntitySet="TB_LOG_ACESSO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_LOG_SI__ID_MO__2180FB33" Association="Self.FK__TB_LOG_SI__ID_MO__2180FB33">
+            <End Role="TB_MODULO" EntitySet="TB_MODULO" />
+            <End Role="TB_LOG_SISTEMA" EntitySet="TB_LOG_SISTEMA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_LOG_SI__ID_US__208CD6FA" Association="Self.FK__TB_LOG_SI__ID_US__208CD6FA">
+            <End Role="TB_USUARIO" EntitySet="TB_USUARIO" />
+            <End Role="TB_LOG_SISTEMA" EntitySet="TB_LOG_SISTEMA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_SUBMEN__ID_ME__59FA5E80" Association="Self.FK__TB_SUBMEN__ID_ME__59FA5E80">
+            <End Role="TB_MENU" EntitySet="TB_MENU" />
+            <End Role="TB_SUBMENU" EntitySet="TB_SUBMENU" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_MODULO__ID_MO__07C12930" Association="Self.FK__TB_MODULO__ID_MO__07C12930">
+            <End Role="TB_MODULO" EntitySet="TB_MODULO" />
+            <End Role="TB_MODULO_DEPARTAMENTO" EntitySet="TB_MODULO_DEPARTAMENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_TAREFA__ID_MO__0F624AF8" Association="Self.FK__TB_TAREFA__ID_MO__0F624AF8">
+            <End Role="TB_MODULO" EntitySet="TB_MODULO" />
+            <End Role="TB_TAREFA" EntitySet="TB_TAREFA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_PERMIS__ID_GR__5FB337D6" Association="Self.FK__TB_PERMIS__ID_GR__5FB337D6">
+            <End Role="TB_USUARIO_GRUPO" EntitySet="TB_USUARIO_GRUPO" />
+            <End Role="TB_PERMISSOES_GRUPO" EntitySet="TB_PERMISSOES_GRUPO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_TAREFA__ID_TA__14270015" Association="Self.FK__TB_TAREFA__ID_TA__14270015">
+            <End Role="TB_TAREFA" EntitySet="TB_TAREFA" />
+            <End Role="TB_TAREFA_FONTE" EntitySet="TB_TAREFA_FONTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_TAREFA__ID_TA__37703C52" Association="Self.FK__TB_TAREFA__ID_TA__37703C52">
+            <End Role="TB_TAREFA" EntitySet="TB_TAREFA" />
+            <End Role="TB_TAREFA_PROXIMA" EntitySet="TB_TAREFA_PROXIMA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_TAREFA__ID_TA__3864608B" Association="Self.FK__TB_TAREFA__ID_TA__3864608B">
+            <End Role="TB_TAREFA" EntitySet="TB_TAREFA" />
+            <End Role="TB_TAREFA_PROXIMA" EntitySet="TB_TAREFA_PROXIMA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_TAREFA__ID_US__0E6E26BF" Association="Self.FK__TB_TAREFA__ID_US__0E6E26BF">
+            <End Role="TB_USUARIO" EntitySet="TB_USUARIO" />
+            <End Role="TB_TAREFA" EntitySet="TB_TAREFA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_TAREFA__TB_TA__31B762FC" Association="Self.FK__TB_TAREFA__TB_TA__31B762FC">
+            <End Role="TB_TAREFA" EntitySet="TB_TAREFA" />
+            <End Role="TB_TAREFA_TIPO_ENTREGA" EntitySet="TB_TAREFA_TIPO_ENTREGA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_TAREFA__ID_TA__19DFD96B" Association="Self.FK__TB_TAREFA__ID_TA__19DFD96B">
+            <End Role="TB_TAREFA_FONTE" EntitySet="TB_TAREFA_FONTE" />
+            <End Role="TB_TAREFA_FONTE_ACESSO" EntitySet="TB_TAREFA_FONTE_ACESSO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_TAREFA__ID_UN__1AD3FDA4" Association="Self.FK__TB_TAREFA__ID_UN__1AD3FDA4">
+            <End Role="TB_UNIDADE" EntitySet="TB_UNIDADE" />
+            <End Role="TB_TAREFA_FONTE_ACESSO" EntitySet="TB_TAREFA_FONTE_ACESSO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_TAREFA__TB_TI__32AB8735" Association="Self.FK__TB_TAREFA__TB_TI__32AB8735">
+            <End Role="TB_TIPO_ENTREGA" EntitySet="TB_TIPO_ENTREGA" />
+            <End Role="TB_TAREFA_TIPO_ENTREGA" EntitySet="TB_TAREFA_TIPO_ENTREGA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_USUARI__ID_GR__70DDC3D8" Association="Self.FK__TB_USUARI__ID_GR__70DDC3D8">
+            <End Role="TB_USUARIO_GRUPO" EntitySet="TB_USUARIO_GRUPO" />
+            <End Role="TB_USUARIO" EntitySet="TB_USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TB_USUARI__ID_US__76969D2E" Association="Self.FK__TB_USUARI__ID_US__76969D2E">
+            <End Role="TB_USUARIO" EntitySet="TB_USUARIO" />
+            <End Role="TB_USUARIO_ACTION" EntitySet="TB_USUARIO_ACTION" />
+          </AssociationSet>
+          <FunctionImport Name="SP_LOGAR" ReturnType="Collection(YOUNITY_ONEModel.SP_LOGAR_Result)">
+            <Parameter Name="COD_USUARIO" Mode="In" Type="String" />
+            <Parameter Name="DES_SENHA" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="SP_LOGAR_Result">
+          <Property Type="String" Name="COD_USUARIO" Nullable="false" MaxLength="15" />
+          <Property Type="Int32" Name="ID_GRUPO" Nullable="false" />
+          <Property Type="String" Name="DES_GRUPO" Nullable="false" MaxLength="300" />
+          <Property Type="String" Name="NOM_ACTION" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="NOM_CONTROLLER" Nullable="false" MaxLength="255" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="YOUNITY_ONEModelStoreContainer" CdmEntityContainer="YOUNITY_ONEEntities">
+          <EntitySetMapping Name="TB_ACAO">
+            <EntityTypeMapping TypeName="YOUNITY_ONEModel.TB_ACAO">
+              <MappingFragment StoreEntitySet="TB_ACAO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_TIPO_ACAO" ColumnName="ID_TIPO_ACAO" />
+                <ScalarProperty Name="ID_TAREFA" ColumnName="ID_TAREFA" />
+                <ScalarProperty Name="NOM_CAMINHO_APP" ColumnName="NOM_CAMINHO_APP" />
+                <ScalarProperty Name="DES_ARGUMENTO" ColumnName="DES_ARGUMENTO" />
+                <ScalarProperty Name="NUM_ORDEM_EXECUCAO" ColumnName="NUM_ORDEM_EXECUCAO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_ACTION">
+            <EntityTypeMapping TypeName="YOUNITY_ONEModel.TB_ACTION">
+              <MappingFragment StoreEntitySet="TB_ACTION">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_CONTROLLER" ColumnName="ID_CONTROLLER" />
+                <ScalarProperty Name="NOM_ACTION" ColumnName="NOM_ACTION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_AGENDA_EXECUCAO">
+            <EntityTypeMapping TypeName="YOUNITY_ONEModel.TB_AGENDA_EXECUCAO">
+              <MappingFragment StoreEntitySet="TB_AGENDA_EXECUCAO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_DISPARADOR" ColumnName="ID_DISPARADOR" />
+                <ScalarProperty Name="DTH_EXECUCAO" ColumnName="DTH_EXECUCAO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_CIDADE">
+            <EntityTypeMapping TypeName="YOUNITY_ONEModel.TB_CIDADE">
+              <MappingFragment StoreEntitySet="TB_CIDADE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NOM_CIDADE" ColumnName="NOM_CIDADE" />
+                <ScalarProperty Name="SIG_UF" ColumnName="SIG_UF" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_CLIENTE">
+            <EntityTypeMapping TypeName="YOUNITY_ONEModel.TB_CLIENTE">
+              <MappingFragment StoreEntitySet="TB_CLIENTE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_TIPO_PESSOA" ColumnName="ID_TIPO_PESSOA" />
+                <ScalarProperty Name="NOM_FANTASIA" ColumnName="NOM_FANTASIA" />
+                <ScalarProperty Name="NOM_RAZAO" ColumnName="NOM_RAZAO" />
+                <ScalarProperty Name="NUM_DOCUMENTO" ColumnName="NUM_DOCUMENTO" />
+                <ScalarProperty Name="FLG_ATIVO" ColumnName="FLG_ATIVO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_CONTATO">
+            <EntityTypeMapping TypeName="YOUNITY_ONEModel.TB_CONTATO">
+              <MappingFragment StoreEntitySet="TB_CONTATO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TB_TIPO_CONTATO_ID" ColumnName="TB_TIPO_CONTATO_ID" />
+                <ScalarProperty Name="ID_UNIDADE" ColumnName="ID_UNIDADE" />
+                <ScalarProperty Name="DES_CONTATO" ColumnName="DES_CONTATO" />
+                <ScalarProperty Name="NOM_CONTATO" ColumnName="NOM_CONTATO" />
+                <ScalarProperty Name="FLG_ATIVO" ColumnName="FLG_ATIVO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_CONTROLER">
+            <EntityTypeMapping TypeName="YOUNITY_ONEModel.TB_CONTROLER">
+              <MappingFragment StoreEntitySet="TB_CONTROLER">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NOM_CONTROLLER" ColumnName="NOM_CONTROLLER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_DEPARTAMENTO_CLIENTE">
+            <EntityTypeMapping TypeName="YOUNITY_ONEModel.TB_DEPARTAMENTO_CLIENTE">
+              <MappingFragment StoreEntitySet="TB_DEPARTAMENTO_CLIENTE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_CLIENTE" ColumnName="ID_CLIENTE" />
+                <ScalarProperty Name="NOM_DEPARTAMENTO" ColumnName="NOM_DEPARTAMENTO" />
+                <ScalarProperty Name="FLG_ATIVO" ColumnName="FLG_ATIVO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_DISPARADOR">
+            <EntityTypeMapping TypeName="YOUNITY_ONEModel.TB_DISPARADOR">
+              <MappingFragment StoreEntitySet="TB_DISPARADOR">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_TIPO_DISPARADOR" ColumnName="ID_TIPO_DISPARADOR" />
+                <ScalarProperty Name="ID_TAREFA" ColumnName="ID_TAREFA" />
+                <ScalarProperty Name="DTH_INICIO" ColumnName="DTH_INICIO" />
+                <ScalarProperty Name="DTH_FIM" ColumnName="DTH_FIM" />
+                <ScalarProperty Name="FLG_DOMINGO" ColumnName="FLG_DOMINGO" />
+                <ScalarProperty Name="FLG_SEGUNDA" ColumnName="FLG_SEGUNDA" />
+                <ScalarProperty Name="FLG_TERCA" ColumnName="FLG_TERCA" />
+                <ScalarProperty Name="FLG_QUARTA" ColumnName="FLG_QUARTA" />
+                <ScalarProperty Name="FLG_QUINTA" ColumnName="FLG_QUINTA" />
+                <ScalarProperty Name="FLG_SEXTA" ColumnName="FLG_SEXTA" />
+                <ScalarProperty Name="FLG_SABADO" ColumnName="FLG_SABADO" />
+                <ScalarProperty Name="NUM_REPETICAO" ColumnName="NUM_REPETICAO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_ENDERECO">
+            <EntityTypeMapping TypeName="YOUNITY_ONEModel.TB_ENDERECO">
+              <MappingFragment StoreEntitySet="TB_ENDERECO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TB_CIDADE_ID" ColumnName="TB_CIDADE_ID" />
+                <ScalarProperty Name="ID_TIPO_LOGRADOURO" ColumnName="ID_TIPO_LOGRADOURO" />
+                <ScalarProperty Name="ID_UNIDADE" ColumnName="ID_UNIDADE" />
+                <ScalarProperty Name="DES_ENDERECO" ColumnName="DES_ENDERECO" />
+                <ScalarProperty Name="DES_NUMERO_ALTURA" ColumnName="DES_NUMERO_ALTURA" />
+                <ScalarProperty Name="DES_COMPLEMENTO" ColumnName="DES_COMPLEMENTO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_FONTE_DEPARTAMENTO">
+            <EntityTypeMapping TypeName="YOUNITY_ONEModel.TB_FONTE_DEPARTAMENTO">
+              <MappingFragment StoreEntitySet="TB_FONTE_DEPARTAMENTO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_FONTE" ColumnName="ID_FONTE" />
+                <ScalarProperty Name="ID_DEPARTAMENTO" ColumnName="ID_DEPARTAMENTO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_FONTE_PAGADORA">
+            <EntityTypeMapping TypeName="YOUNITY_ONEModel.TB_FONTE_PAGADORA">
+              <MappingFragment StoreEntitySet="TB_FONTE_PAGADORA">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NOM_FONTE" ColumnName="NOM_FONTE" />
+                <ScalarProperty Name="END_SITE" ColumnName="END_SITE" />
+                <ScalarProperty Name="FLG_ATIVO" ColumnName="FLG_ATIVO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_FONTE_PAGADORA_PARAMETRO">
+            <EntityTypeMapping TypeName="YOUNITY_ONEModel.TB_FONTE_PAGADORA_PARAMETRO">
+              <MappingFragment StoreEntitySet="TB_FONTE_PAGADORA_PARAMETRO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NOM_PARAMETRO" ColumnName="NOM_PARAMETRO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO">
+            <EntityTypeMapping TypeName="YOUNITY_ONEModel.TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO">
+              <MappingFragment StoreEntitySet="TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_FONTE_PAGADORA_PARAMETRO" ColumnName="ID_FONTE_PAGADORA_PARAMETRO" />
+                <ScalarProperty Name="ID_FONTE_PAGADORA" ColumnName="ID_FONTE_PAGADORA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_GRUPO_NOTIFICACAO">
+            <EntityTypeMapping TypeName="YOUNITY_ONEModel.TB_GRUPO_NOTIFICACAO">
+              <MappingFragment StoreEntitySet="TB_GRUPO_NOTIFICACAO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_TIPO_NOTIFICACAO" ColumnName="ID_TIPO_NOTIFICACAO" />
+                <ScalarProperty Name="DES_GRUPO" ColumnName="DES_GRUPO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_GRUPO_NOTIFICACAO_ACAO">
+            <EntityTypeMapping TypeName="YOUNITY_ONEModel.TB_GRUPO_NOTIFICACAO_ACAO">
+              <MappingFragment StoreEntitySet="TB_GRUPO_NOTIFICACAO_ACAO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_GRUPO_NOTIFICACAO" ColumnName="ID_GRUPO_NOTIFICACAO" />
+                <ScalarProperty Name="ID_ACAO" ColumnName="ID_ACAO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_GRUPO_NOTIFICACAO_REMETENTE">
+            <EntityTypeMapping TypeName="YOUNITY_ONEModel.TB_GRUPO_NOTIFICACAO_REMETENTE">
+              <MappingFragment StoreEntitySet="TB_GRUPO_NOTIFICACAO_REMETENTE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_GRUPO_NOTIFICACAO" ColumnName="ID_GRUPO_NOTIFICACAO" />
+                <ScalarProperty Name="NOM_REMETENTE" ColumnName="NOM_REMETENTE" />
+                <ScalarProperty Name="NUM_TELEFONE" ColumnName="NUM_TELEFONE" />
+                <ScalarProperty Name="END_MAIL" ColumnName="END_MAIL" />
+                <ScalarProperty Name="FLG_ATIVO" ColumnName="FLG_ATIVO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_HISTORICO_EXECUCAO">
+            <EntityTypeMapping TypeName="YOUNITY_ONEModel.TB_HISTORICO_EXECUCAO">
+              <MappingFragment StoreEntitySet="TB_HISTORICO_EXECUCAO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_TAREFA" ColumnName="ID_TAREFA" />
+                <ScalarProperty Name="FLG_SUCESSO" ColumnName="FLG_SUCESSO" />
+                <ScalarProperty Name="DES_DETALHE" ColumnName="DES_DETALHE" />
+                <ScalarProperty Name="DTH_EXECUCAO" ColumnName="DTH_EXECUCAO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_LOG_ACESSO">
+            <EntityTypeMapping TypeName="YOUNITY_ONEModel.TB_LOG_ACESSO">
+              <MappingFragment StoreEntitySet="TB_LOG_ACESSO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_ACTION" ColumnName="ID_ACTION" />
+                <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+                <ScalarProperty Name="DTH_ACAO" ColumnName="DTH_ACAO" />
+                <ScalarProperty Name="NUM_IP" ColumnName="NUM_IP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_LOG_SISTEMA">
+            <EntityTypeMapping TypeName="YOUNITY_ONEModel.TB_LOG_SISTEMA">
+              <MappingFragment StoreEntitySet="TB_LOG_SISTEMA">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_ACTION" ColumnName="ID_ACTION" />
+                <ScalarProperty Name="ID_MODULO" ColumnName="ID_MODULO" />
+                <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+                <ScalarProperty Name="DTH_ACAO" ColumnName="DTH_ACAO" />
+                <ScalarProperty Name="FLG_ERRO" ColumnName="FLG_ERRO" />
+                <ScalarProperty Name="DES_ACAO" ColumnName="DES_ACAO" />
+                <ScalarProperty Name="NUM_IP" ColumnName="NUM_IP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_MENU">
+            <EntityTypeMapping TypeName="YOUNITY_ONEModel.TB_MENU">
+              <MappingFragment StoreEntitySet="TB_MENU">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NOM_MENU" ColumnName="NOM_MENU" />
+                <ScalarProperty Name="NUM_ORDEM" ColumnName="NUM_ORDEM" />
+                <ScalarProperty Name="FLG_ATIVO" ColumnName="FLG_ATIVO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_MODULO">
+            <EntityTypeMapping TypeName="YOUNITY_ONEModel.TB_MODULO">
+              <MappingFragment StoreEntitySet="TB_MODULO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NOM_MODULO" ColumnName="NOM_MODULO" />
+                <ScalarProperty Name="DES_MODULO" ColumnName="DES_MODULO" />
+                <ScalarProperty Name="FLG_ATIVO" ColumnName="FLG_ATIVO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_MODULO_DEPARTAMENTO">
+            <EntityTypeMapping TypeName="YOUNITY_ONEModel.TB_MODULO_DEPARTAMENTO">
+              <MappingFragment StoreEntitySet="TB_MODULO_DEPARTAMENTO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_DEPARTAMENTO" ColumnName="ID_DEPARTAMENTO" />
+                <ScalarProperty Name="ID_MODULO" ColumnName="ID_MODULO" />
+                <ScalarProperty Name="FLG_ATIVO" ColumnName="FLG_ATIVO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_PERMISSOES_GRUPO">
+            <EntityTypeMapping TypeName="YOUNITY_ONEModel.TB_PERMISSOES_GRUPO">
+              <MappingFragment StoreEntitySet="TB_PERMISSOES_GRUPO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_ACTION" ColumnName="ID_ACTION" />
+                <ScalarProperty Name="ID_GRUPO" ColumnName="ID_GRUPO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_SUBMENU">
+            <EntityTypeMapping TypeName="YOUNITY_ONEModel.TB_SUBMENU">
+              <MappingFragment StoreEntitySet="TB_SUBMENU">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_ACTION" ColumnName="ID_ACTION" />
+                <ScalarProperty Name="ID_MENU" ColumnName="ID_MENU" />
+                <ScalarProperty Name="NOM_SUBMENU" ColumnName="NOM_SUBMENU" />
+                <ScalarProperty Name="NUM_ORDEM" ColumnName="NUM_ORDEM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_TAREFA">
+            <EntityTypeMapping TypeName="YOUNITY_ONEModel.TB_TAREFA">
+              <MappingFragment StoreEntitySet="TB_TAREFA">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+                <ScalarProperty Name="ID_MODULO" ColumnName="ID_MODULO" />
+                <ScalarProperty Name="NOM_TAREFA" ColumnName="NOM_TAREFA" />
+                <ScalarProperty Name="DES_TAREFA" ColumnName="DES_TAREFA" />
+                <ScalarProperty Name="FLG_ATIVO" ColumnName="FLG_ATIVO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_TAREFA_FONTE">
+            <EntityTypeMapping TypeName="YOUNITY_ONEModel.TB_TAREFA_FONTE">
+              <MappingFragment StoreEntitySet="TB_TAREFA_FONTE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_FONTE_DEPARTAMENTO" ColumnName="ID_FONTE_DEPARTAMENTO" />
+                <ScalarProperty Name="ID_TAREFA" ColumnName="ID_TAREFA" />
+                <ScalarProperty Name="FLG_ATIVO" ColumnName="FLG_ATIVO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_TAREFA_FONTE_ACESSO">
+            <EntityTypeMapping TypeName="YOUNITY_ONEModel.TB_TAREFA_FONTE_ACESSO">
+              <MappingFragment StoreEntitySet="TB_TAREFA_FONTE_ACESSO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_UNIDADE" ColumnName="ID_UNIDADE" />
+                <ScalarProperty Name="ID_FONTE_PARAMETRO_DEFINICAO" ColumnName="ID_FONTE_PARAMETRO_DEFINICAO" />
+                <ScalarProperty Name="ID_TAREFA_FONTE" ColumnName="ID_TAREFA_FONTE" />
+                <ScalarProperty Name="VAL_ACESSO" ColumnName="VAL_ACESSO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_TAREFA_PROXIMA">
+            <EntityTypeMapping TypeName="YOUNITY_ONEModel.TB_TAREFA_PROXIMA">
+              <MappingFragment StoreEntitySet="TB_TAREFA_PROXIMA">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_TAREFA_PROXIMA" ColumnName="ID_TAREFA_PROXIMA" />
+                <ScalarProperty Name="ID_TAREFA_ATUAL" ColumnName="ID_TAREFA_ATUAL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_TAREFA_TIPO_ENTREGA">
+            <EntityTypeMapping TypeName="YOUNITY_ONEModel.TB_TAREFA_TIPO_ENTREGA">
+              <MappingFragment StoreEntitySet="TB_TAREFA_TIPO_ENTREGA">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TB_TIPO_ENTREGA_ID" ColumnName="TB_TIPO_ENTREGA_ID" />
+                <ScalarProperty Name="TB_TAREFA_ID" ColumnName="TB_TAREFA_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_TIPO_ACAO">
+            <EntityTypeMapping TypeName="YOUNITY_ONEModel.TB_TIPO_ACAO">
+              <MappingFragment StoreEntitySet="TB_TIPO_ACAO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DES_TIPO" ColumnName="DES_TIPO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_TIPO_CONTATO">
+            <EntityTypeMapping TypeName="YOUNITY_ONEModel.TB_TIPO_CONTATO">
+              <MappingFragment StoreEntitySet="TB_TIPO_CONTATO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DES_CONTATO" ColumnName="DES_CONTATO" />
+                <ScalarProperty Name="DES_MASCARA" ColumnName="DES_MASCARA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_TIPO_DISPARADOR">
+            <EntityTypeMapping TypeName="YOUNITY_ONEModel.TB_TIPO_DISPARADOR">
+              <MappingFragment StoreEntitySet="TB_TIPO_DISPARADOR">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DES_TIPO" ColumnName="DES_TIPO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_TIPO_ENTREGA">
+            <EntityTypeMapping TypeName="YOUNITY_ONEModel.TB_TIPO_ENTREGA">
+              <MappingFragment StoreEntitySet="TB_TIPO_ENTREGA">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DES_TIPO_ENTREGA" ColumnName="DES_TIPO_ENTREGA" />
+                <ScalarProperty Name="FLG_ATIVO" ColumnName="FLG_ATIVO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_TIPO_LOGRADOURO">
+            <EntityTypeMapping TypeName="YOUNITY_ONEModel.TB_TIPO_LOGRADOURO">
+              <MappingFragment StoreEntitySet="TB_TIPO_LOGRADOURO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DES_LOGRADOURO" ColumnName="DES_LOGRADOURO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_TIPO_NOTIFICACAO">
+            <EntityTypeMapping TypeName="YOUNITY_ONEModel.TB_TIPO_NOTIFICACAO">
+              <MappingFragment StoreEntitySet="TB_TIPO_NOTIFICACAO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DES_NOTIFICACAO" ColumnName="DES_NOTIFICACAO" />
+                <ScalarProperty Name="FLG_ATIVO" ColumnName="FLG_ATIVO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_TIPO_PESSOA">
+            <EntityTypeMapping TypeName="YOUNITY_ONEModel.TB_TIPO_PESSOA">
+              <MappingFragment StoreEntitySet="TB_TIPO_PESSOA">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DES_PESSOA" ColumnName="DES_PESSOA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_UNIDADE">
+            <EntityTypeMapping TypeName="YOUNITY_ONEModel.TB_UNIDADE">
+              <MappingFragment StoreEntitySet="TB_UNIDADE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_CLIENTE" ColumnName="ID_CLIENTE" />
+                <ScalarProperty Name="NUM_CNPJ" ColumnName="NUM_CNPJ" />
+                <ScalarProperty Name="NOM_UNIDADE" ColumnName="NOM_UNIDADE" />
+                <ScalarProperty Name="FLG_ATIVO" ColumnName="FLG_ATIVO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_USUARIO">
+            <EntityTypeMapping TypeName="YOUNITY_ONEModel.TB_USUARIO">
+              <MappingFragment StoreEntitySet="TB_USUARIO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_DEPARTAMENTO" ColumnName="ID_DEPARTAMENTO" />
+                <ScalarProperty Name="ID_GRUPO" ColumnName="ID_GRUPO" />
+                <ScalarProperty Name="COD_USUARIO" ColumnName="COD_USUARIO" />
+                <ScalarProperty Name="DES_SENHA" ColumnName="DES_SENHA" />
+                <ScalarProperty Name="NOM_USUARIO" ColumnName="NOM_USUARIO" />
+                <ScalarProperty Name="NUM_CPF" ColumnName="NUM_CPF" />
+                <ScalarProperty Name="END_MAIL" ColumnName="END_MAIL" />
+                <ScalarProperty Name="FLG_ATIVO" ColumnName="FLG_ATIVO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_USUARIO_ACTION">
+            <EntityTypeMapping TypeName="YOUNITY_ONEModel.TB_USUARIO_ACTION">
+              <MappingFragment StoreEntitySet="TB_USUARIO_ACTION">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+                <ScalarProperty Name="ID_ACTION" ColumnName="ID_ACTION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_USUARIO_GRUPO">
+            <EntityTypeMapping TypeName="YOUNITY_ONEModel.TB_USUARIO_GRUPO">
+              <MappingFragment StoreEntitySet="TB_USUARIO_GRUPO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DES_GRUPO" ColumnName="DES_GRUPO" />
+                <ScalarProperty Name="FLG_ATIVO" ColumnName="FLG_ATIVO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_LOGAR" FunctionName="YOUNITY_ONEModel.Store.SP_LOGAR">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="YOUNITY_ONEModel.SP_LOGAR_Result">
+                <ScalarProperty Name="COD_USUARIO" ColumnName="COD_USUARIO" />
+                <ScalarProperty Name="ID_GRUPO" ColumnName="ID_GRUPO" />
+                <ScalarProperty Name="DES_GRUPO" ColumnName="DES_GRUPO" />
+                <ScalarProperty Name="NOM_ACTION" ColumnName="NOM_ACTION" />
+                <ScalarProperty Name="NOM_CONTROLLER" ColumnName="NOM_CONTROLLER" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

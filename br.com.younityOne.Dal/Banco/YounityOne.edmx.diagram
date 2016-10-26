@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="168afcdb840941d3a1cc483387f5dc7c" Name="Diagram1">
+        <EntityTypeShape EntityType="YOUNITY_ONEModel.TB_ACAO" Width="1.5" PointX="8.25" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="YOUNITY_ONEModel.TB_ACTION" Width="1.5" PointX="0.75" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="YOUNITY_ONEModel.TB_AGENDA_EXECUCAO" Width="1.5" PointX="13.5" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="YOUNITY_ONEModel.TB_CIDADE" Width="1.5" PointX="11.25" PointY="24.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="YOUNITY_ONEModel.TB_CLIENTE" Width="1.5" PointX="1.5" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="YOUNITY_ONEModel.TB_CONTATO" Width="1.5" PointX="10.5" PointY="27.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="YOUNITY_ONEModel.TB_CONTROLER" Width="1.5" PointX="1.5" PointY="22.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="YOUNITY_ONEModel.TB_DEPARTAMENTO_CLIENTE" Width="1.5" PointX="1.5" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="YOUNITY_ONEModel.TB_DISPARADOR" Width="1.5" PointX="11.25" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="YOUNITY_ONEModel.TB_ENDERECO" Width="1.5" PointX="13.5" PointY="26.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="YOUNITY_ONEModel.TB_FONTE_DEPARTAMENTO" Width="1.5" PointX="6" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="YOUNITY_ONEModel.TB_FONTE_PAGADORA" Width="1.5" PointX="3.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="YOUNITY_ONEModel.TB_FONTE_PAGADORA_PARAMETRO" Width="1.5" PointX="6" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="YOUNITY_ONEModel.TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO" Width="1.5" PointX="8.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="YOUNITY_ONEModel.TB_GRUPO_NOTIFICACAO" Width="1.5" PointX="11.25" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="YOUNITY_ONEModel.TB_GRUPO_NOTIFICACAO_ACAO" Width="1.5" PointX="13.5" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="YOUNITY_ONEModel.TB_GRUPO_NOTIFICACAO_REMETENTE" Width="1.5" PointX="13.5" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="YOUNITY_ONEModel.TB_HISTORICO_EXECUCAO" Width="1.5" PointX="8.25" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="YOUNITY_ONEModel.TB_LOG_ACESSO" Width="1.5" PointX="11" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="YOUNITY_ONEModel.TB_LOG_SISTEMA" Width="1.5" PointX="3" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="YOUNITY_ONEModel.TB_MENU" Width="1.5" PointX="1.75" PointY="24.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="YOUNITY_ONEModel.TB_MODULO" Width="1.5" PointX="0.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="YOUNITY_ONEModel.TB_MODULO_DEPARTAMENTO" Width="1.5" PointX="6" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="YOUNITY_ONEModel.TB_PERMISSOES_GRUPO" Width="1.5" PointX="3.75" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="YOUNITY_ONEModel.TB_SUBMENU" Width="1.5" PointX="4" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="YOUNITY_ONEModel.TB_TAREFA" Width="1.5" PointX="6" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="YOUNITY_ONEModel.TB_TAREFA_FONTE" Width="1.5" PointX="8.25" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="YOUNITY_ONEModel.TB_TAREFA_FONTE_ACESSO" Width="1.5" PointX="10.5" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="YOUNITY_ONEModel.TB_TAREFA_PROXIMA" Width="1.5" PointX="8.25" PointY="23.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="YOUNITY_ONEModel.TB_TAREFA_TIPO_ENTREGA" Width="1.5" PointX="8.25" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="YOUNITY_ONEModel.TB_TIPO_ACAO" Width="1.5" PointX="6" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="YOUNITY_ONEModel.TB_TIPO_CONTATO" Width="1.5" PointX="8.25" PointY="33.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="YOUNITY_ONEModel.TB_TIPO_DISPARADOR" Width="1.5" PointX="9" PointY="31.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="YOUNITY_ONEModel.TB_TIPO_ENTREGA" Width="1.5" PointX="6" PointY="21" IsExpanded="true" />
+        <EntityTypeShape EntityType="YOUNITY_ONEModel.TB_TIPO_LOGRADOURO" Width="1.5" PointX="11.25" PointY="30.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="YOUNITY_ONEModel.TB_TIPO_NOTIFICACAO" Width="1.5" PointX="9" PointY="21" IsExpanded="true" />
+        <EntityTypeShape EntityType="YOUNITY_ONEModel.TB_TIPO_PESSOA" Width="1.5" PointX="1.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="YOUNITY_ONEModel.TB_UNIDADE" Width="1.5" PointX="8.25" PointY="27" IsExpanded="true" />
+        <EntityTypeShape EntityType="YOUNITY_ONEModel.TB_USUARIO" Width="1.5" PointX="3.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="YOUNITY_ONEModel.TB_USUARIO_ACTION" Width="1.5" PointX="14" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="YOUNITY_ONEModel.TB_USUARIO_GRUPO" Width="1.5" PointX="1.5" PointY="10.625" IsExpanded="true" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_ACAO__ID_TARE__2BFE89A6" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_ACAO__ID_TIPO__2CF2ADDF" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_GRUPO___ID_AC__44CA3770" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_ACTION__ID_CO__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_LOG_AC__ID_AC__7D439ABD" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_LOG_SI__ID_AC__22751F6C" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_PERMIS__ID_AC__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_SUBMEN__ID_AC__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_USUARI__ID_AC__778AC167" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_AGENDA__ID_DI__498EEC8D" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_ENDERE__TB_CI__6754599E" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_CLIENT__ID_TI__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_DEPART__ID_CL__6C190EBB" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_UNIDAD__ID_CL__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_CONTAT__ID_UN__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_CONTAT__TB_TI__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_FONTE___ID_DE__02084FDA" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_MODULO__ID_DE__08B54D69" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_USUARI__ID_DE__71D1E811" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_DISPAR__ID_TA__3E1D39E1" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_DISPAR__ID_TI__3F115E1A" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_ENDERE__ID_TI__66603565" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_ENDERE__ID_UN__656C112C" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_FONTE___ID_FO__02FC7413" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_TAREFA__ID_FO__151B244E" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_FONTE___ID_FO__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_FONTE___ID_FO__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_TAREFA__ID_FO__1BC821DD" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_GRUPO___ID_GR__43D61337" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_GRUPO___ID_GR__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_GRUPO___ID_TI__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_HISTOR__ID_TA__2739D489" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_LOG_AC__ID_US__7C4F7684" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_LOG_SI__ID_MO__2180FB33" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_LOG_SI__ID_US__208CD6FA" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_SUBMEN__ID_ME__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_MODULO__ID_MO__07C12930" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_TAREFA__ID_MO__0F624AF8" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_PERMIS__ID_GR__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_TAREFA__ID_TA__14270015" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_TAREFA__ID_TA__37703C52" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_TAREFA__ID_TA__3864608B" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_TAREFA__ID_US__0E6E26BF" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_TAREFA__TB_TA__31B762FC" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_TAREFA__ID_TA__19DFD96B" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_TAREFA__ID_UN__1AD3FDA4" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_TAREFA__TB_TI__32AB8735" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_USUARI__ID_GR__70DDC3D8" ManuallyRouted="false" />
+        <AssociationConnector Association="YOUNITY_ONEModel.FK__TB_USUARI__ID_US__76969D2E" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
