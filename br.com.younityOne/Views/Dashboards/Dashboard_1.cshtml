@@ -530,7 +530,13 @@
     </a>
 </div>
 
+
+
 @section Scripts {
+
+    @Scripts.Render("~/Scripts/Pages/Dashboard/Dashboard.js")
+
+
     @Scripts.Render("~/plugins/flot")
     @Scripts.Render("~/plugins/sparkline")
     @Scripts.Render("~/plugins/chartJs")
@@ -696,4 +702,5 @@
 
         });
     </script>
+
 }

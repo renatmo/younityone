@@ -1,4 +1,6 @@
-﻿<nav class="navbar-default navbar-static-side" role="navigation">
+﻿@model br.com.younityOne.web.Models.Menu
+
+<nav class="navbar-default navbar-static-side" role="navigation">
     <div class="sidebar-collapse">
         <ul class="nav" id="side-menu">
             <li class="nav-header">
@@ -18,8 +20,10 @@
                         <li><a href="@Url.Action("Contacts", "AppViews")">Contacts</a></li>
                         <li><a href="@Url.Action("Inbox", "Mailbox")">Mailbox</a></li>
                         <li class="divider"></li>
-                        <li><a href="@Url.Action("Login", "Pages")">Logout</a></li>
+                        <li><a href="@Url.Action("Login_2", "Pages")">Logout</a></li>
+                        <li>@Html.TextBoxFor(m => m.Nome)</li>
                     </ul>
+
                 </div>
                 <div class="logo-element">
                     IN+

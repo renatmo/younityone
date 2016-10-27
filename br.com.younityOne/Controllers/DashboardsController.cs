@@ -1,4 +1,5 @@
-﻿using System;
+﻿using br.com.younityOne.web.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +11,15 @@ namespace br.com.younityOne.web.Controllers
     {
         public ActionResult Dashboard_1()
         {
-            return View();
+            Menu oMenu = new Menu();
+
+            oMenu.Nome = "Menu1";
+            
+            oMenu.SubMenu = new SubMenu();
+            oMenu.SubMenu.Nome = "SubMenu1";
+
+
+            return View(oMenu);
         }
 
         public ActionResult Dashboard_2()
