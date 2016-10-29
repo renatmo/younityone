@@ -120,6 +120,7 @@
   <ItemGroup>
     <Folder Include="App_Data\uploads\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\GestaoAcesso\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -131,6 +132,7 @@
     <Compile Include="Controllers\EcommerceController.cs" />
     <Compile Include="Controllers\FormsController.cs" />
     <Compile Include="Controllers\GalleryController.cs" />
+    <Compile Include="Controllers\GestaoAcessoController.cs" />
     <Compile Include="Controllers\GraphsController.cs" />
     <Compile Include="Controllers\GridOptionsController.cs" />
     <Compile Include="Controllers\DashboardsController.cs" />
@@ -1650,7 +1652,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Dashboards\Dashboard_1.cshtml" />
+    <Content Include="Views\Dashboards\Visualizar.cshtml" />
     <Content Include="Scripts\jquery-2.1.1.min.map" />
     <Content Include="Views\Shared\_Navigation.cshtml" />
     <Content Include="Views\Shared\_TopNavbar.cshtml" />

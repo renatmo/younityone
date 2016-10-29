@@ -18,5 +18,6 @@ namespace br.com.younityOne.DAL.Banco
         public string DES_GRUPO { get; set; }
         public string NOM_ACTION { get; set; }
         public string NOM_CONTROLLER { get; set; }
+        public string NOM_USUARIO { get; set; }
     }
 }

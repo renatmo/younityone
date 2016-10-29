@@ -22,6 +22,7 @@ namespace br.com.younityOne.DAL.Banco
         public int ID { get; set; }
         public string NOM_MENU { get; set; }
         public int NUM_ORDEM { get; set; }
+        public string NOM_IMAGEM { get; set; }
         public bool FLG_ATIVO { get; set; }
     
         public virtual ICollection<TB_SUBMENU> TB_SUBMENU { get; set; }

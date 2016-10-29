@@ -49,173 +49,159 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Banco\SP_LOGAR_Result.cs">
-      <DependentUpon>YounityOne.tt</DependentUpon>
+      <DependentUpon>YOUNITY_ONE.tt</DependentUpon>
     </Compile>
     <Compile Include="Banco\TB_ACAO.cs">
-      <DependentUpon>YounityOne.tt</DependentUpon>
+      <DependentUpon>YOUNITY_ONE.tt</DependentUpon>
     </Compile>
     <Compile Include="Banco\TB_ACTION.cs">
-      <DependentUpon>YounityOne.tt</DependentUpon>
+      <DependentUpon>YOUNITY_ONE.tt</DependentUpon>
     </Compile>
     <Compile Include="Banco\TB_AGENDA_EXECUCAO.cs">
-      <DependentUpon>YounityOne.tt</DependentUpon>
+      <DependentUpon>YOUNITY_ONE.tt</DependentUpon>
     </Compile>
     <Compile Include="Banco\TB_CIDADE.cs">
-      <DependentUpon>YounityOne.tt</DependentUpon>
+      <DependentUpon>YOUNITY_ONE.tt</DependentUpon>
     </Compile>
     <Compile Include="Banco\TB_CLIENTE.cs">
-      <DependentUpon>YounityOne.tt</DependentUpon>
+      <DependentUpon>YOUNITY_ONE.tt</DependentUpon>
     </Compile>
     <Compile Include="Banco\TB_CONTATO.cs">
-      <DependentUpon>YounityOne.tt</DependentUpon>
+      <DependentUpon>YOUNITY_ONE.tt</DependentUpon>
     </Compile>
     <Compile Include="Banco\TB_CONTROLER.cs">
-      <DependentUpon>YounityOne.tt</DependentUpon>
+      <DependentUpon>YOUNITY_ONE.tt</DependentUpon>
     </Compile>
     <Compile Include="Banco\TB_DEPARTAMENTO_CLIENTE.cs">
-      <DependentUpon>YounityOne.tt</DependentUpon>
+      <DependentUpon>YOUNITY_ONE.tt</DependentUpon>
     </Compile>
     <Compile Include="Banco\TB_DISPARADOR.cs">
-      <DependentUpon>YounityOne.tt</DependentUpon>
+      <DependentUpon>YOUNITY_ONE.tt</DependentUpon>
     </Compile>
     <Compile Include="Banco\TB_ENDERECO.cs">
-      <DependentUpon>YounityOne.tt</DependentUpon>
+      <DependentUpon>YOUNITY_ONE.tt</DependentUpon>
     </Compile>
     <Compile Include="Banco\TB_FONTE_DEPARTAMENTO.cs">
-      <DependentUpon>YounityOne.tt</DependentUpon>
+      <DependentUpon>YOUNITY_ONE.tt</DependentUpon>
     </Compile>
     <Compile Include="Banco\TB_FONTE_PAGADORA.cs">
-      <DependentUpon>YounityOne.tt</DependentUpon>
+      <DependentUpon>YOUNITY_ONE.tt</DependentUpon>
     </Compile>
     <Compile Include="Banco\TB_FONTE_PAGADORA_PARAMETRO.cs">
-      <DependentUpon>YounityOne.tt</DependentUpon>
+      <DependentUpon>YOUNITY_ONE.tt</DependentUpon>
     </Compile>
     <Compile Include="Banco\TB_FONTE_PAGADORA_PARAMETRO_DEFINICAO.cs">
-      <DependentUpon>YounityOne.tt</DependentUpon>
+      <DependentUpon>YOUNITY_ONE.tt</DependentUpon>
     </Compile>
     <Compile Include="Banco\TB_GRUPO_NOTIFICACAO.cs">
-      <DependentUpon>YounityOne.tt</DependentUpon>
+      <DependentUpon>YOUNITY_ONE.tt</DependentUpon>
     </Compile>
     <Compile Include="Banco\TB_GRUPO_NOTIFICACAO_ACAO.cs">
-      <DependentUpon>YounityOne.tt</DependentUpon>
+      <DependentUpon>YOUNITY_ONE.tt</DependentUpon>
     </Compile>
     <Compile Include="Banco\TB_GRUPO_NOTIFICACAO_REMETENTE.cs">
-      <DependentUpon>YounityOne.tt</DependentUpon>
+      <DependentUpon>YOUNITY_ONE.tt</DependentUpon>
     </Compile>
     <Compile Include="Banco\TB_HISTORICO_EXECUCAO.cs">
-      <DependentUpon>YounityOne.tt</DependentUpon>
+      <DependentUpon>YOUNITY_ONE.tt</DependentUpon>
     </Compile>
     <Compile Include="Banco\TB_LOG_ACESSO.cs">
-      <DependentUpon>YounityOne.tt</DependentUpon>
+      <DependentUpon>YOUNITY_ONE.tt</DependentUpon>
     </Compile>
     <Compile Include="Banco\TB_LOG_SISTEMA.cs">
-      <DependentUpon>YounityOne.tt</DependentUpon>
+      <DependentUpon>YOUNITY_ONE.tt</DependentUpon>
     </Compile>
     <Compile Include="Banco\TB_MENU.cs">
-      <DependentUpon>YounityOne.tt</DependentUpon>
+      <DependentUpon>YOUNITY_ONE.tt</DependentUpon>
     </Compile>
     <Compile Include="Banco\TB_MODULO.cs">
-      <DependentUpon>YounityOne.tt</DependentUpon>
+      <DependentUpon>YOUNITY_ONE.tt</DependentUpon>
     </Compile>
     <Compile Include="Banco\TB_MODULO_DEPARTAMENTO.cs">
-      <DependentUpon>YounityOne.tt</DependentUpon>
+      <DependentUpon>YOUNITY_ONE.tt</DependentUpon>
     </Compile>
     <Compile Include="Banco\TB_PERMISSOES_GRUPO.cs">
-      <DependentUpon>YounityOne.tt</DependentUpon>
+      <DependentUpon>YOUNITY_ONE.tt</DependentUpon>
     </Compile>
     <Compile Include="Banco\TB_SUBMENU.cs">
-      <DependentUpon>YounityOne.tt</DependentUpon>
+      <DependentUpon>YOUNITY_ONE.tt</DependentUpon>
     </Compile>
     <Compile Include="Banco\TB_TAREFA.cs">
-      <DependentUpon>YounityOne.tt</DependentUpon>
+      <DependentUpon>YOUNITY_ONE.tt</DependentUpon>
     </Compile>
     <Compile Include="Banco\TB_TAREFA_FONTE.cs">
-      <DependentUpon>YounityOne.tt</DependentUpon>
+      <DependentUpon>YOUNITY_ONE.tt</DependentUpon>
     </Compile>
     <Compile Include="Banco\TB_TAREFA_FONTE_ACESSO.cs">
-      <DependentUpon>YounityOne.tt</DependentUpon>
+      <DependentUpon>YOUNITY_ONE.tt</DependentUpon>
     </Compile>
     <Compile Include="Banco\TB_TAREFA_PROXIMA.cs">
-      <DependentUpon>YounityOne.tt</DependentUpon>
+      <DependentUpon>YOUNITY_ONE.tt</DependentUpon>
     </Compile>
     <Compile Include="Banco\TB_TAREFA_TIPO_ENTREGA.cs">
-      <DependentUpon>YounityOne.tt</DependentUpon>
+      <DependentUpon>YOUNITY_ONE.tt</DependentUpon>
     </Compile>
     <Compile Include="Banco\TB_TIPO_ACAO.cs">
-      <DependentUpon>YounityOne.tt</DependentUpon>
+      <DependentUpon>YOUNITY_ONE.tt</DependentUpon>
     </Compile>
     <Compile Include="Banco\TB_TIPO_CONTATO.cs">
-      <DependentUpon>YounityOne.tt</DependentUpon>
+      <DependentUpon>YOUNITY_ONE.tt</DependentUpon>
     </Compile>
     <Compile Include="Banco\TB_TIPO_DISPARADOR.cs">
-      <DependentUpon>YounityOne.tt</DependentUpon>
+      <DependentUpon>YOUNITY_ONE.tt</DependentUpon>
     </Compile>
     <Compile Include="Banco\TB_TIPO_ENTREGA.cs">
-      <DependentUpon>YounityOne.tt</DependentUpon>
+      <DependentUpon>YOUNITY_ONE.tt</DependentUpon>
     </Compile>
     <Compile Include="Banco\TB_TIPO_LOGRADOURO.cs">
-      <DependentUpon>YounityOne.tt</DependentUpon>
+      <DependentUpon>YOUNITY_ONE.tt</DependentUpon>
     </Compile>
     <Compile Include="Banco\TB_TIPO_NOTIFICACAO.cs">
-      <DependentUpon>YounityOne.tt</DependentUpon>
+      <DependentUpon>YOUNITY_ONE.tt</DependentUpon>
     </Compile>
     <Compile Include="Banco\TB_TIPO_PESSOA.cs">
-      <DependentUpon>YounityOne.tt</DependentUpon>
+      <DependentUpon>YOUNITY_ONE.tt</DependentUpon>
     </Compile>
     <Compile Include="Banco\TB_UNIDADE.cs">
-      <DependentUpon>YounityOne.tt</DependentUpon>
+      <DependentUpon>YOUNITY_ONE.tt</DependentUpon>
     </Compile>
     <Compile Include="Banco\TB_USUARIO.cs">
-      <DependentUpon>YounityOne.tt</DependentUpon>
+      <DependentUpon>YOUNITY_ONE.tt</DependentUpon>
     </Compile>
     <Compile Include="Banco\TB_USUARIO_ACTION.cs">
-      <DependentUpon>YounityOne.tt</DependentUpon>
+      <DependentUpon>YOUNITY_ONE.tt</DependentUpon>
     </Compile>
     <Compile Include="Banco\TB_USUARIO_GRUPO.cs">
-      <DependentUpon>YounityOne.tt</DependentUpon>
+      <DependentUpon>YOUNITY_ONE.tt</DependentUpon>
     </Compile>
-    <Compile Include="Banco\YounityOne.Context.cs">
+    <Compile Include="Banco\YOUNITY_ONE.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>YounityOne.Context.tt</DependentUpon>
+      <DependentUpon>YOUNITY_ONE.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Banco\YounityOne.cs">
+    <Compile Include="Banco\YOUNITY_ONE.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>YounityOne.tt</DependentUpon>
+      <DependentUpon>YOUNITY_ONE.tt</DependentUpon>
     </Compile>
-    <Compile Include="Banco\YounityOne.Designer.cs">
+    <Compile Include="Banco\YOUNITY_ONE.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>YounityOne.edmx</DependentUpon>
+      <DependentUpon>YOUNITY_ONE.edmx</DependentUpon>
     </Compile>
-    <Compile Include="UsuarioDAL.cs" />
+    <Compile Include="GestaoAcessoDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="Banco\YounityOne.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>YounityOne.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.Config" />
-    <None Include="Banco\YounityOne.edmx.diagram">
-      <DependentUpon>YounityOne.edmx</DependentUpon>
+    <EntityDeploy Include="Banco\YOUNITY_ONE.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>YOUNITY_ONE.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Banco\YOUNITY_ONE.edmx.diagram">
+      <DependentUpon>YOUNITY_ONE.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Banco\YounityOne.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>YounityOne.edmx</DependentUpon>
-      <LastGenOutput>YounityOne.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Banco\YounityOne.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>YounityOne.edmx</DependentUpon>
-      <LastGenOutput>YounityOne.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -225,6 +211,18 @@
       <Project>{d0f06799-e493-4a22-ada7-7447432b3319}</Project>
       <Name>br.com.younityOne.MODEL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Banco\YOUNITY_ONE.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>YOUNITY_ONE.edmx</DependentUpon>
+      <LastGenOutput>YOUNITY_ONE.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Banco\YOUNITY_ONE.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>YOUNITY_ONE.edmx</DependentUpon>
+      <LastGenOutput>YOUNITY_ONE.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

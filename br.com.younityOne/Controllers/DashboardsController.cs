@@ -9,17 +9,9 @@ namespace br.com.younityOne.web.Controllers
 {
     public class DashboardsController : BaseController
     {
-        public ActionResult Dashboard_1()
+        public ActionResult Visualizar()
         {
-            Menu oMenu = new Menu();
-
-            oMenu.Nome = "Menu1";
-            
-            oMenu.SubMenu = new SubMenu();
-            oMenu.SubMenu.Nome = "SubMenu1";
-
-
-            return View(oMenu);
+            return View();
         }
 
         public ActionResult Dashboard_2()

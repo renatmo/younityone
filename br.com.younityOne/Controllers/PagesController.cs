@@ -12,7 +12,7 @@ namespace br.com.younityOne.web.Controllers
 {
     public class PagesController : Controller
     {
-        UsuarioBLL oUsuarioBll = new UsuarioBLL();
+        GestaoAcessoBLL oGestaoAcessoBLL = new GestaoAcessoBLL();
 
         public ActionResult SearchResults()
         {
@@ -49,7 +49,7 @@ namespace br.com.younityOne.web.Controllers
         {
             List<UsuarioMODEL> listaUsuarioMODEL = null;
 
-            listaUsuarioMODEL = oUsuarioBll.logar(pUsuario.CodigoUsuario, pUsuario.Senha);
+            listaUsuarioMODEL = oGestaoAcessoBLL.logar(pUsuario.CodigoUsuario, pUsuario.Senha);
 
             if (listaUsuarioMODEL.Count > 0)
             {
@@ -58,7 +58,7 @@ namespace br.com.younityOne.web.Controllers
 
             }
 
-            return RedirectToAction("Dashboard_1", "Dashboards");
+            return RedirectToAction("Visualizar", "Dashboards");
 
         }
 

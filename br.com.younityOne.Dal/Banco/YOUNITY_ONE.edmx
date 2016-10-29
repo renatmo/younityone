@@ -207,6 +207,7 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NOM_MENU" Type="varchar" MaxLength="300" Nullable="false" />
           <Property Name="NUM_ORDEM" Type="int" Nullable="false" />
+          <Property Name="NOM_IMAGEM" Type="varchar" MaxLength="300" Nullable="false" />
           <Property Name="FLG_ATIVO" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="TB_MODULO">
@@ -1474,6 +1475,7 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NOM_MENU" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="NUM_ORDEM" Type="Int32" Nullable="false" />
+          <Property Name="NOM_IMAGEM" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="FLG_ATIVO" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="TB_SUBMENU" Relationship="Self.FK__TB_SUBMEN__ID_ME__59FA5E80" FromRole="TB_MENU" ToRole="TB_SUBMENU" />
         </EntityType>
@@ -2543,6 +2545,7 @@
           <Property Type="String" Name="DES_GRUPO" Nullable="false" MaxLength="300" />
           <Property Type="String" Name="NOM_ACTION" Nullable="false" MaxLength="255" />
           <Property Type="String" Name="NOM_CONTROLLER" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="NOM_USUARIO" Nullable="false" MaxLength="200" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2771,6 +2774,7 @@
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="NOM_MENU" ColumnName="NOM_MENU" />
                 <ScalarProperty Name="NUM_ORDEM" ColumnName="NUM_ORDEM" />
+                <ScalarProperty Name="NOM_IMAGEM" ColumnName="NOM_IMAGEM" />
                 <ScalarProperty Name="FLG_ATIVO" ColumnName="FLG_ATIVO" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -2977,6 +2981,7 @@
                 <ScalarProperty Name="DES_GRUPO" ColumnName="DES_GRUPO" />
                 <ScalarProperty Name="NOM_ACTION" ColumnName="NOM_ACTION" />
                 <ScalarProperty Name="NOM_CONTROLLER" ColumnName="NOM_CONTROLLER" />
+                <ScalarProperty Name="NOM_USUARIO" ColumnName="NOM_USUARIO" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

@@ -8,16 +8,30 @@ using br.com.younityOne.MODEL;
 
 namespace br.com.younityOne.BLL
 {
-    public class UsuarioBLL
+    public class GestaoAcessoBLL
     {
 
-        UsuarioDAL oUsuarioDAL = new UsuarioDAL();
+        GestaoAcessoDAL oGestaoAcessoDAL = new GestaoAcessoDAL();
 
         public List<UsuarioMODEL> logar(string pUsuario, string pSenha)
         {
             try
             {
-                return oUsuarioDAL.logar(pUsuario, pSenha);
+                return oGestaoAcessoDAL.logar(pUsuario, pSenha);
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public List<MenuMODEL> obterMenus(string pCodigoUsuario)
+        {
+            try
+            {
+                return oGestaoAcessoDAL.obterMenus(pCodigoUsuario);
 
             }
             catch (Exception)

@@ -39,6 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MenuMODEL.cs" />
+    <Compile Include="NavegacaoMODEL.cs" />
+    <Compile Include="SubMenuMODEL.cs" />
     <Compile Include="UsuarioMODEL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

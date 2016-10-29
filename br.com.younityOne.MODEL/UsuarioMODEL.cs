@@ -17,5 +17,7 @@ namespace br.com.younityOne.MODEL
         public string NOM_ACTION { get; set; }
 
         public string NOM_CONTROLLER { get; set; }
+
+        public string NOM_USUARIO { get; set; }
     }
 }

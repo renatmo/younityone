@@ -1,7 +1,7 @@
 ﻿$(function () {
 
-    var mensagem = "Teste de java script";
+    //var mensagem = "Teste de java script";
 
-    alert(mensagem);
+    //alert(mensagem);
 
 })
